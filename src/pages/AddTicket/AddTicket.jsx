@@ -8,7 +8,7 @@ const AddTicket = (props) => {
     description: '',
     relatedLink: '',
     status: 'Not started',
-    priority: 'High',
+    priority: '',
     assignedTo: {},
     submittedBy: props.user,
   })
@@ -18,6 +18,10 @@ const AddTicket = (props) => {
       ...formData,
       [e.target.name]: e.target.value
     })
+  }
+
+  const isFormInvalid = () => {
+    return !(title && description && priority)
   }
 
   const {title, description, priority, relatedLink} = formData
@@ -39,6 +43,7 @@ const AddTicket = (props) => {
           name="title"
           onChange={handleChange}
           value={title}
+          required='true'
         />
         <br /><br />
         <label>
@@ -104,8 +109,8 @@ const AddTicket = (props) => {
         />
       </div>
       <br />
-      <Link to="/">
-        <button>Submit</button>
+      <Link to="/tickets">
+        <button disabled={isFormInvalid()}>Submit</button>
       </Link>
     </form>
     </div>
