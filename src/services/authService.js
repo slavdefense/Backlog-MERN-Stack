@@ -8,6 +8,7 @@ function signup(user) {
     body: JSON.stringify(user),
   })
   .then(res => {
+    console.log(res)
     return res.json()
   })
   .then(({ token }) => tokenService.setToken(token)) 

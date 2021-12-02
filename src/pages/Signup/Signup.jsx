@@ -17,5 +17,5 @@ const Signup = (props) => {
     </main>
   );
 }
- 
+
 export default Signup;

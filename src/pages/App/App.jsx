@@ -9,6 +9,7 @@ import * as authService from '../../services/authService'
 import "./App.css"
 import AllTickets from '../../components/AllTickets/AllTickets-component'
 import MyWork from '../../components/Mywork/Mywork-component'
+import AddTicket from '../AddTicket/AddTicket'
 
 const App = () => {
 	const [user, setUser] = useState(authService.getUser())
@@ -44,10 +45,10 @@ const App = () => {
 				<Route path='/users' element={user ? <Users /> : <Navigate to='/login' />} />
 			  <Route path ="/tickets" element={<AllTickets/>}/>
 			  <Route path ="/mywork" element={<MyWork/>} />
-				
+				<Route path='/addTicket' element={<AddTicket />} />
 			</Routes>
 		</>
 	);
 }
- 
+
 export default App;
