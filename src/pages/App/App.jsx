@@ -11,6 +11,7 @@ import "./App.css"
 import AddTicket from '../AddTicket/AddTicket'
 import { createTicket,getTickets } from '../../services/ticketService'
 import TicketView from '../TicketView/TicketView'
+import EditTicket from '../EditTicket/EditTicket'
 import MyWork from '../MyWork/MyWork'
 
 const App = () => {
@@ -62,7 +63,8 @@ const App = () => {
 				<Route path ="/tickets" element={<AllTickets ticket={allTickets}/>}/>
 				<Route path='/myWork' element={<MyWork user={user} />} />
 				<Route path='/addTicket' element={<AddTicket handleSubmitTicket={handleSubmitTicket} user={user}/>} />
-				<Route path='/ticketDetails' element={<TicketView />} />
+				<Route path='/ticketDetails' element={<TicketView user={user} />} />
+				<Route path="/editTicket" element={<EditTicket />} />
 			</Routes>
 		</>
 	);

@@ -1,4 +1,5 @@
-import { useLocation } from "react-router-dom";
+import userEvent from "@testing-library/user-event";
+import { useLocation, Link } from "react-router-dom";
 import './TicketView.css'
 
 const TicketView = (props) => {
@@ -16,7 +17,9 @@ const TicketView = (props) => {
         <p>Related Link: {location.state.relatedLink}</p>
         : <p></p>
       }
+      <Link className="btn btn-warning" state={location.state} to="/editTicket">Edit</Link>
     </div>
+    
     </>
   );
 }
