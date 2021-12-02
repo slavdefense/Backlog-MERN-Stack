@@ -8,7 +8,6 @@ import AllTickets from '../AllTickets/AllTickets'
 import Users from '../Users/Users'
 import * as authService from '../../services/authService'
 import "./App.css"
-import AllTicketsComp from '../../components/AllTickets/AllTickets-component'
 import MyWork from '../../components/Mywork/Mywork-component'
 import AddTicket from '../AddTicket/AddTicket'
 import { createTicket,getTickets } from '../../services/ticketService'
@@ -32,7 +31,6 @@ const App = () => {
 		getTickets()
 		.then((result)=>setAllTickets(result))
 	},[])
-
 
 	const handleSubmitTicket = formData => {
 		console.log(formData)
