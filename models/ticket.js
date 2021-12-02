@@ -3,7 +3,7 @@ import mongoose from 'mongoose'
 const commentSchema = new mongoose.Schema(
   {
     content: String,
-    author: [{type: mongoose.Types.ObjectId, ref:"Profile"}]
+    author: [{type: mongoose.Schema.Types.ObjectId, ref:"Profile"}]
   },
   {
     timestamps: true,
@@ -22,8 +22,8 @@ const ticketSchema = new mongoose.Schema(
       enum: ["Not started", "In progress", "Completed"],
       default: "Not started"
     },
-    assignedTo: {type: mongoose.Types.ObjectId, ref: "Profile"},
-    submittedBy: {type: mongoose.Types.ObjectId, ref: "Profile"},
+    assignedTo: {type: mongoose.Schema.Types.ObjectId, ref: "Profile"},
+    submittedBy: {type: mongoose.Schema.Types.ObjectId, ref: "Profile"},
     relatedLink: String,
     comments: [commentSchema]
   },
