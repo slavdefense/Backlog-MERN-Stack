@@ -7,8 +7,10 @@ function index(req,res){
 }
 
 function create(req,res){
-
+  Ticket.create(req.body)
+  .then(newTicket => res.json(newTicket))
 }
+
 function deleteTickets(req,res){
 
 }
