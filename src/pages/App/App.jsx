@@ -21,7 +21,8 @@ const App = () => {
 		{name:'HOME', url:'/home'},
 		{name:'SEARCH',url:'/search'},
 		{name:'TICKETS',url:'/tickets'},
-		{name:'MY WORK',url:'/mywork'}
+		{name:'MY WORK',url:'/mywork'},
+		{name:"New Ticket",url:'/addTicket'}
 	])
 
 	const handleSubmitTicket = formData => {
