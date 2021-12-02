@@ -8,10 +8,10 @@ import AllTickets from '../AllTickets/AllTickets'
 import Users from '../Users/Users'
 import * as authService from '../../services/authService'
 import "./App.css"
-import MyWork from '../../components/Mywork/Mywork-component'
 import AddTicket from '../AddTicket/AddTicket'
 import { createTicket,getTickets } from '../../services/ticketService'
 import TicketView from '../TicketView/TicketView'
+import MyWork from '../MyWork/MyWork'
 
 const App = () => {
 	const [user, setUser] = useState(authService.getUser())
@@ -59,10 +59,10 @@ const App = () => {
 				<Route path='/signup' element={<Signup handleSignupOrLogin={handleSignupOrLogin} />} />
 				<Route path='/login' element={<Login handleSignupOrLogin={handleSignupOrLogin} />} />
 				<Route path='/users' element={user ? <Users /> : <Navigate to='/login' />} />
-			  <Route path ="/tickets" element={<AllTickets ticket={allTickets}/>}/>
-			  <Route path ="/mywork" element={<MyWork/>} />
+				<Route path ="/tickets" element={<AllTickets ticket={allTickets}/>}/>
+				<Route path='/myWork' element={<MyWork user={user} />} />
 				<Route path='/addTicket' element={<AddTicket handleSubmitTicket={handleSubmitTicket} user={user}/>} />
-				<Route path='/ticketDetails' element={<TicketView user={user} />} />
+				<Route path='/ticketDetails' element={<TicketView />} />
 			</Routes>
 		</>
 	);
