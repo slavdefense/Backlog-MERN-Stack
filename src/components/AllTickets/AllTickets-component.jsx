@@ -31,18 +31,11 @@ const AllTicketsComp = ({tickets}) => {
   </tr>
   
 </table>
-
-
-
-
-
-      )
-     
+)
       
 
     })}
     
-   
     
 
     </div>
