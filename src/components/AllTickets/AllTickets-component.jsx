@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 
 
 const AllTicketsComp = ({tickets}) => {
@@ -42,9 +44,14 @@ const AllTicketsComp = ({tickets}) => {
     
    
     
-    </div>
 
-   );
+    </div>
+  );
 }
+
+
+
+
  
 export default AllTicketsComp;
+

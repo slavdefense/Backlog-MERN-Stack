@@ -12,6 +12,7 @@ import AllTicketsComp from '../../components/AllTickets/AllTickets-component'
 import MyWork from '../../components/Mywork/Mywork-component'
 import AddTicket from '../AddTicket/AddTicket'
 import { createTicket,getTickets } from '../../services/ticketService'
+import TicketView from '../TicketView/TicketView'
 
 const App = () => {
 	const [user, setUser] = useState(authService.getUser())
@@ -26,10 +27,11 @@ const App = () => {
 		{name:'MY WORK',url:'/mywork'},
 		{name:"New Ticket",url:'/addTicket'}
 	])
-useEffect(()=>{
-	getTickets()
-	.then((result)=>setAllTickets(result))
-},[])
+	
+	useEffect(()=>{
+		getTickets()
+		.then((result)=>setAllTickets(result))
+	},[])
 
 
 	const handleSubmitTicket = formData => {
@@ -40,8 +42,6 @@ useEffect(()=>{
 			setTickets([...tickets, newTicketData])
 		})
 	}
-
-
 
 	const handleLogout = () => {
 		authService.logout()
@@ -64,6 +64,7 @@ useEffect(()=>{
 			  <Route path ="/tickets" element={<AllTickets ticket={allTickets}/>}/>
 			  <Route path ="/mywork" element={<MyWork/>} />
 				<Route path='/addTicket' element={<AddTicket handleSubmitTicket={handleSubmitTicket} user={user}/>} />
+				<Route path='/ticketDetails' element={<TicketView user={user} />} />
 			</Routes>
 		</>
 	);
