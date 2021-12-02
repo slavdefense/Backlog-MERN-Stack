@@ -1,10 +1,47 @@
 import React from 'react';
 
 
-const AllTickets = (props) => {
+const AllTickets = ({ticket}) => {
+  
+
   return ( 
     <div className="container">
-    <h1>This is the page to display all tickets</h1>
+    {ticket.map((ticket)=>{
+      return(
+        
+
+<table className="table">
+  <tr>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Related Links</th>
+    <th>Status</th>
+    <th>Priority</th>
+    <th>Submitted By</th>
+  </tr>
+  <tr>
+    <td>{ticket.title}</td>
+    <td>{ticket.description}</td>
+    <td>{ticket.relatedLink}</td>
+    <td>{ticket.status}</td>
+    <td>{ticket.priority}</td>
+    <td>{ticket.submittedBy}</td>
+  </tr>
+  
+</table>
+
+
+
+
+
+      )
+     
+      
+
+    })}
+    
+   
+    
     </div>
 
    );

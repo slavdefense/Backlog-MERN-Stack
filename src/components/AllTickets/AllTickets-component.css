@@ -1,4 +1,7 @@
-body{
-  position:relative;
-  left:35vh;
+.container{
+  margin-left: 200px;
+}
+
+.table{
+  border: 2px solid black;
 }

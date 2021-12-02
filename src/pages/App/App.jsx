@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import { Routes, Route, useNavigate, Navigate } from 'react-router-dom'
 import NavBar from '../../components/NavBar/NavBar'
 import Signup from '../Signup/Signup'
@@ -10,11 +10,12 @@ import "./App.css"
 import AllTickets from '../../components/AllTickets/AllTickets-component'
 import MyWork from '../../components/Mywork/Mywork-component'
 import AddTicket from '../AddTicket/AddTicket'
-import { createTicket } from '../../services/ticketService'
+import { createTicket,getTickets } from '../../services/ticketService'
 
 const App = () => {
 	const [user, setUser] = useState(authService.getUser())
 	const [tickets, setTickets] = useState([])
+	const [allTickets,setAllTickets] = useState([])
 	const navigate = useNavigate()
 
 	const [navComponents,setNavComponents] = useState([
@@ -24,6 +25,11 @@ const App = () => {
 		{name:'MY WORK',url:'/mywork'},
 		{name:"New Ticket",url:'/addTicket'}
 	])
+useEffect(()=>{
+	getTickets()
+	.then((result)=>setAllTickets(result))
+},[])
+
 
 	const handleSubmitTicket = formData => {
 		console.log(formData)
@@ -33,6 +39,7 @@ const App = () => {
 			setTickets([...tickets, newTicketData])
 		})
 	}
+
 
 
 	const handleLogout = () => {
@@ -53,7 +60,7 @@ const App = () => {
 				<Route path='/signup' element={<Signup handleSignupOrLogin={handleSignupOrLogin} />} />
 				<Route path='/login' element={<Login handleSignupOrLogin={handleSignupOrLogin} />} />
 				<Route path='/users' element={user ? <Users /> : <Navigate to='/login' />} />
-			  <Route path ="/tickets" element={<AllTickets/>}/>
+			  <Route path ="/tickets" element={<AllTickets ticket={allTickets}/>}/>
 			  <Route path ="/mywork" element={<MyWork/>} />
 				<Route path='/addTicket' element={<AddTicket handleSubmitTicket={handleSubmitTicket} user={user}/>} />
 			</Routes>
