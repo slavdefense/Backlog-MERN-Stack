@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import * as userService from '../../services/userService'
+import './User.css'
 
 const Users = () => {
   const [users, setUsers] = useState([])
@@ -10,7 +11,7 @@ const Users = () => {
   }, [])
 
   return (
-    <>
+    <div className="User-List container">
       <h1>Hello.  This is a list of all the users.</h1>
       {users.length ? 
       <>
@@ -21,7 +22,7 @@ const Users = () => {
       :
         <p>An error occured</p>
       }
-    </>
+    </div>
   );
 }
  
