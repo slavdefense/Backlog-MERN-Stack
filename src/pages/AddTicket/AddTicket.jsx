@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import './AddTicket.css'
 
 const AddTicket = (props) => {
@@ -9,15 +9,27 @@ const AddTicket = (props) => {
     relatedLink: '',
     status: 'Not started',
     priority: '',
-    assignedTo: {},
     submittedBy: props.user,
   })
+
+  const navigate = useNavigate()
 
   const handleChange = e => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
     })
+  }
+
+  const handleSubmit = async e => {
+    e.preventDefault()
+    try {
+      console.log('test1')
+      props.handleSubmitTicket(formData)
+      navigate('/tickets')
+    } catch(e) {
+      console.log(e)
+    }
   }
 
   const isFormInvalid = () => {
@@ -30,7 +42,8 @@ const AddTicket = (props) => {
     <div className="addTicket">
     <h1>Add Ticket</h1>
     <form
-      toComplete="off"
+      autoComplete="off"
+      onSubmit={handleSubmit}
     >
       <div className="inputs">
         <label>
@@ -43,7 +56,6 @@ const AddTicket = (props) => {
           name="title"
           onChange={handleChange}
           value={title}
-          required='true'
         />
         <br /><br />
         <label>
@@ -109,9 +121,7 @@ const AddTicket = (props) => {
         />
       </div>
       <br />
-      <Link to="/tickets">
         <button disabled={isFormInvalid()}>Submit</button>
-      </Link>
     </form>
     </div>
   );

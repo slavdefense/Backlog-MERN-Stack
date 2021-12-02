@@ -10,9 +10,11 @@ import "./App.css"
 import AllTickets from '../../components/AllTickets/AllTickets-component'
 import MyWork from '../../components/Mywork/Mywork-component'
 import AddTicket from '../AddTicket/AddTicket'
+import { createTicket } from '../../services/ticketService'
 
 const App = () => {
 	const [user, setUser] = useState(authService.getUser())
+	const [tickets, setTickets] = useState([])
 	const navigate = useNavigate()
 
 	const [navComponents,setNavComponents] = useState([
@@ -21,6 +23,16 @@ const App = () => {
 		{name:'TICKETS',url:'/tickets'},
 		{name:'MY WORK',url:'/mywork'}
 	])
+
+	const handleSubmitTicket = formData => {
+		console.log(formData)
+		console.log('test2')
+		createTicket(formData)
+		.then(newTicketData => {
+			setTickets([...tickets, newTicketData])
+		})
+	}
+
 
 	const handleLogout = () => {
 		authService.logout()
@@ -42,7 +54,7 @@ const App = () => {
 				<Route path='/users' element={user ? <Users /> : <Navigate to='/login' />} />
 			  <Route path ="/tickets" element={<AllTickets/>}/>
 			  <Route path ="/mywork" element={<MyWork/>} />
-				<Route path='/addTicket' element={<AddTicket user={user}/>} />
+				<Route path='/addTicket' element={<AddTicket handleSubmitTicket={handleSubmitTicket} user={user}/>} />
 			</Routes>
 		</>
 	);

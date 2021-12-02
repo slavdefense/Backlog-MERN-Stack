@@ -7,6 +7,7 @@ const router = Router()
 /*---------- Public Routes ----------*/
 
 router.get('/',ticketCtrl.index)
+router.post('/',ticketCtrl.create)
 
 
 /*---------- Protected Routes ----------*/
