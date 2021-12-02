@@ -1,12 +1,12 @@
 import React from 'react';
 
 
-const AllTickets = ({ticket}) => {
+const AllTicketsComp = ({tickets}) => {
   
 
   return ( 
     <div className="container">
-    {ticket.map((ticket)=>{
+    {tickets.map((ticket)=>{
       return(
         
 
@@ -47,4 +47,4 @@ const AllTickets = ({ticket}) => {
    );
 }
  
-export default AllTickets;
+export default AllTicketsComp;
