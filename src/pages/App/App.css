@@ -1,4 +1,7 @@
+*, *::before, *::after{
+  box-sizing: border-box;
+}
 body{
-  background-color: darkgray;
-  color:black;
+  margin: 0;
+  background:linear-gradient(to right,#00AAFF,#00FF6C);
 }

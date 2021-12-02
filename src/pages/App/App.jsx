@@ -16,10 +16,10 @@ const App = () => {
 
 	const [navComponents,setNavComponents] = useState([
 
-		{name:'Homepage', url:'/home'},
-		{name:'Search',url:'/search'},
-		{name:'Tickets',url:'/tickets'},
-		{name:'My Work',url:'/mywork'}
+		{name:'HOME', url:'/home'},
+		{name:'SEARCH',url:'/search'},
+		{name:'TICKETS',url:'/tickets'},
+		{name:'MY WORK',url:'/mywork'}
 		
 
 	])

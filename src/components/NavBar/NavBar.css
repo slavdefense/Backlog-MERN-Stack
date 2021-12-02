@@ -19,8 +19,9 @@ body{
   height:100vh;
   position:absolute;
   margin-right: 10px;
-  background: rgb(2,0,36);
-background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,98,121,1) 35%, rgba(0,212,255,1) 100%);
+  
+background: rgb(2,0,36);
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(19,9,121,1) 35%, rgba(0,212,255,1) 100%);
 
 }
 
@@ -33,10 +34,11 @@ font-weight: bolder;
 }
 
 .nav-div{
-  margin-top: -180px;
+  margin-top: -80px;
 }
 .nav-components{
-  margin-top: -550px;
+ 
+  
 }
 
 li{
@@ -52,3 +54,4 @@ span{
 .auth-style{
   margin-left: 12px;
 }
+
