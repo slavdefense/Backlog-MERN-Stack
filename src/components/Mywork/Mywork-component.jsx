@@ -1,6 +1,6 @@
 import React from 'react';
 import "./Mywork-component.css"
-const MyWork = (props) => {
+const MyWorkComp = (props) => {
   return (
     
     <div className="container" >
@@ -10,4 +10,4 @@ const MyWork = (props) => {
   );
 }
  
-export default MyWork;
+export default MyWorkComp;
