@@ -50,6 +50,9 @@ const NavBar = ({ user, handleLogout,navComponents }) => {
 							<li className="nav-components-li">
 								<Link to='/mywork' > <span>{navComponents[3].name}</span></Link>
 							</li>
+							<li className="nav-components-li">
+								<Link to='/addTicket' > <span>{navComponents[4].name}</span></Link>
+							</li>
 
 						</ul>
 		
