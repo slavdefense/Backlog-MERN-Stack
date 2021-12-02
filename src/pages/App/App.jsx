@@ -16,13 +16,10 @@ const App = () => {
 	const navigate = useNavigate()
 
 	const [navComponents,setNavComponents] = useState([
-
 		{name:'HOME', url:'/home'},
 		{name:'SEARCH',url:'/search'},
 		{name:'TICKETS',url:'/tickets'},
 		{name:'MY WORK',url:'/mywork'}
-		
-
 	])
 
 	const handleLogout = () => {
@@ -45,7 +42,7 @@ const App = () => {
 				<Route path='/users' element={user ? <Users /> : <Navigate to='/login' />} />
 			  <Route path ="/tickets" element={<AllTickets/>}/>
 			  <Route path ="/mywork" element={<MyWork/>} />
-				<Route path='/addTicket' element={<AddTicket />} />
+				<Route path='/addTicket' element={<AddTicket user={user}/>} />
 			</Routes>
 		</>
 	);

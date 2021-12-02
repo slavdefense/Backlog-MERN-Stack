@@ -19,8 +19,8 @@ const ticketSchema = new mongoose.Schema(
     completedDate: Date,
     status: {
       type: String,
-      enum: ["not started", "in progress", "completed"],
-      default: "not started"
+      enum: ["Not started", "In progress", "Completed"],
+      default: "Not started"
     },
     assignedTo: {type: mongoose.Types.ObjectId, ref: "Profile"},
     submittedBy: {type: mongoose.Types.ObjectId, ref: "Profile"},

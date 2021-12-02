@@ -2,12 +2,25 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import './AddTicket.css'
 
-const AddTicket = () => {
+const AddTicket = (props) => {
   const [formData, setFormData] = useState({
     title: '',
     description: '',
-    priority: {enum: ["Not started", "In progress", "Completed"]},
+    relatedLink: '',
+    status: 'Not started',
+    priority: 'High',
+    assignedTo: {},
+    submittedBy: props.user,
   })
+
+  const handleChange = e => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    })
+  }
+
+  const {title, description, priority, relatedLink} = formData
 
   return ( 
     <div className="addTicket">
@@ -17,50 +30,78 @@ const AddTicket = () => {
     >
       <div className="inputs">
         <label>
-          Title
+          <h4>Title</h4>
         </label>
         <br />
         <input 
-          type="text" placeholder="Title" 
+          type="text" 
+          placeholder="Title"
+          name="title"
+          onChange={handleChange}
+          value={title}
         />
-        <br />
+        <br /><br />
         <label>
-          Details
+          <h4>Details</h4>
         </label>
         <br />
         <textarea
-          placeholder="Add informationa about the issue"
-          cols="30" rows="10"
+          placeholder="Describe the problem here. Include any relevant information and details."
+          cols="30" 
+          rows="10"
+          name="description"
+          onChange={handleChange}
+          value={description}
         />
+        <br /><br />
+        <label>
+          <h4>Link</h4>
+        </label>
         <br />
-        <label>Link</label>
-        <br />
-        <p>Add a URL to the page that has an issue.</p>
+        <p className="subtitle">Add a URL to the page that has an issue.</p>
         <input 
           type="url"
           placeholder=""
+          name="relatedLink"
+          onChange={handleChange}
+          value={relatedLink}
         />
+        <br /><br />
+        <label>
+          <h4>Priority Level</h4>
+        </label>
         <br />
-        <label>Priority Level</label>
         <select
           name="priority"
+          onChange={handleChange}
         >
-          <option value="High">
+          <option
+            name="priority"
+            value='High'
+          >
             High
           </option>
-          <option value="Medium">
+          <option 
+            name="priority"
+            value='Medium'
+          >
             Medium
           </option>
-          <option value="Low">
+          <option
+            name="priority" 
+            value='Low'
+          >
             Low
           </option>
         </select>
-        <br />
+        <br /><br />
         <label>
-          Add an image
+          <h4>Add an image</h4>
         </label>
         <br />
-        <input type="file"/>
+        <input 
+        type="file"
+        />
       </div>
       <br />
       <Link to="/">
