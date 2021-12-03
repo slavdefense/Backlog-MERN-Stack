@@ -23,8 +23,14 @@ const TicketView = (props) => {
         <p>Related Link: {location.state.relatedLink}</p>
         : <p></p>
       }
+      {(props.user.profile === location.state.submittedBy) ?
+      <>
       <Link className="btn btn-warning" state={location.state} to="/editTicket">Edit</Link>
-      <button onClick={handleClick}> Delete</button>
+      <button className="btn btn-danger" onClick={handleClick}> Delete</button>
+      </>
+      :
+      <Link className = "btn btn-danger" to="/tickets">go back</Link>
+      }
     </div>
     
     </>
