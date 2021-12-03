@@ -33,7 +33,7 @@ const App = () => {
 	useEffect(()=>{
 		getTickets()
 		.then((result)=>setAllTickets(result))
-	},[])
+	},[tickets])
 
 	useEffect(() => {
 		getProfile(user)
