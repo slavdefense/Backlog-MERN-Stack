@@ -23,7 +23,7 @@ const ticketSchema = new mongoose.Schema(
       default: "Not started"
     },
     assignedTo: {type: mongoose.Schema.Types.ObjectId, ref: "Profile"},
-    submittedBy: {type: mongoose.Schema.Types.ObjectId, ref: "Profile"},
+    submittedBy: {type: mongoose.Schema.Types.ObjectId, ref: "User"},
     relatedLink: String,
     comments: [commentSchema]
   },

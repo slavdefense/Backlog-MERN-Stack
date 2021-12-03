@@ -88,7 +88,7 @@ const App = () => {
 				<Route path='/users' element={user ? <Users /> : <Navigate to='/login' />} />
 				<Route path ="/tickets" element={<AllTickets ticket={allTickets}/>}/>
 				<Route path='/myWork' element={<MyWork user={user} profile={profile} />} />
-				<Route path='/addTicket' element={<AddTicket handleSubmitTicket={handleSubmitTicket} user={user}/>} />
+				<Route path='/addTicket' element={<AddTicket handleSubmitTicket={handleSubmitTicket} user={user} profile={profile}/>} />
 				<Route path='/ticketDetails' element={<TicketView user={user} handleDeleteTicket={handleDeleteTicket} />} />
 				<Route path="/editTicket" element={<EditTicket handleUpdateTicket={handleUpdateTicket} />} />
 			</Routes>

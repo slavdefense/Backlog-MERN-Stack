@@ -5,8 +5,11 @@ import { User } from '../models/user.js'
 
 function index(req,res){
   Ticket.find({})
-  .then((tickets)=>res.json(tickets))
-
+    .populate('submittedBy')
+    .then((tickets)=> {
+      console.log(tickets)
+      res.json(tickets)
+    })
 }
 
 function create(req,res){

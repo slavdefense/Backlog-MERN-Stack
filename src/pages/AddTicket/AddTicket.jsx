@@ -40,6 +40,7 @@ const AddTicket = (props) => {
 
   return ( 
     <div className="addTicket">
+      {console.log(props.profile)}
     <h1>Add Ticket</h1>
     <form
       autoComplete="off"
