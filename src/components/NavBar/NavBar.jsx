@@ -20,24 +20,7 @@ const NavBar = ({ user, handleLogout,navComponents }) => {
                 <Link to="/users">Users</Link>
               </li>
 						</ul>
-					</div>
-				</nav>
-			) : (
-				<nav>
-					<div>
-						<ul>
-							<li className="auth-style">
-								<Link to="/login">Log In</Link>
-							</li>
-							<li className="auth-style">
-								<Link to="/signup">Sign Up</Link>
-							</li>
-						</ul>
-						
-					</div>
-				</nav>
-			)}
-			<ul className="container nav-components">
+						<ul className="container nav-components">
 							<li className="nav-components-li">
 								<Link to='/' > <span>{navComponents[0].name}</span></Link>
 							</li>
@@ -55,6 +38,24 @@ const NavBar = ({ user, handleLogout,navComponents }) => {
 							</li>
 
 						</ul>
+					</div>
+				</nav>
+			) : (
+				<nav>
+					<div>
+						<ul>
+							<li className="auth-style">
+								<Link to="/login">Log In</Link>
+							</li>
+							<li className="auth-style">
+								<Link to="/signup">Sign Up</Link>
+							</li>
+						</ul>
+						
+					</div>
+				</nav>
+			)}
+			
 		
   
 		</div>
