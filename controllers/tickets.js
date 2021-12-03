@@ -7,7 +7,6 @@ function index(req,res){
   Ticket.find({})
   .populate('submittedBy')
   .then((tickets)=> {
-    console.log(tickets)
     res.json(tickets)
   })
 }
