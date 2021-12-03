@@ -1,5 +1,9 @@
+#edit-view-header {
+  display: flex;
+  justify-content: center;
+}
 .edit-view {
   display: flex;
   justify-content: center;
-  align-items: center;
 }
+

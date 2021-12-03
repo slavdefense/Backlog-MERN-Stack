@@ -9,7 +9,7 @@ import Users from '../Users/Users'
 import * as authService from '../../services/authService'
 import "./App.css"
 import AddTicket from '../AddTicket/AddTicket'
-import { createTicket,getTickets } from '../../services/ticketService'
+import { createTicket,getTickets, updateTicket } from '../../services/ticketService'
 import TicketView from '../TicketView/TicketView'
 import EditTicket from '../EditTicket/EditTicket'
 import MyWork from '../MyWork/MyWork'
@@ -52,6 +52,21 @@ const App = () => {
 		setUser(authService.getUser())
 	}
 
+
+
+
+
+
+	
+	const handleUpdateTicket = (TicketInfo) => {
+		updateTicket(TicketInfo)
+		.then(updatedTicketInfo => {
+			const newTicketArray = tickets.map(ticket => 
+				ticket._id === updatedTicketInfo._id ? updatedTicketInfo : ticket)
+			setTickets(newTicketArray)
+		})
+	}
+
 	return (
 		<>
 			<NavBar navComponents={navComponents} user={user} handleLogout={handleLogout} />
@@ -64,7 +79,7 @@ const App = () => {
 				<Route path='/myWork' element={<MyWork user={user} />} />
 				<Route path='/addTicket' element={<AddTicket handleSubmitTicket={handleSubmitTicket} user={user}/>} />
 				<Route path='/ticketDetails' element={<TicketView user={user} />} />
-				<Route path="/editTicket" element={<EditTicket />} />
+				<Route path="/editTicket" element={<EditTicket handleUpdateTicket={handleUpdateTicket} />} />
 			</Routes>
 		</>
 	);

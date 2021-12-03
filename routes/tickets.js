@@ -8,6 +8,7 @@ const router = Router()
 
 router.get('/',ticketCtrl.index)
 router.post('/',ticketCtrl.create)
+router.patch('/:id', ticketCtrl.update)
 
 
 /*---------- Protected Routes ----------*/

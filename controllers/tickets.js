@@ -15,7 +15,10 @@ function deleteTickets(req,res){
 
 }
 function update(req,res){
-
+  Ticket.findByIdAndUpdate(req.params.id, req.body, {new: true})
+  .then(ticket => {
+    res.json(ticket)
+  })
 }
 
 export{
