@@ -4,7 +4,7 @@ import './TicketView.css'
 
 const TicketView = (props) => {
   const location = useLocation()
-  console.log(location.state._id)
+  console.log(location.state.title)
 
   const handleClick = (evt)=>{
     evt.preventDefault()
@@ -18,7 +18,7 @@ const TicketView = (props) => {
       <p>{location.state.description}</p>
       <p>{location.state.status}</p>
       <p>{location.state.priority}</p>
-      <p>{location.state.submittedBy}</p>
+      <p>{location.state.submittedBy.name}</p>
       {(location.state.relatedLink) ?
         <p>Related Link: {location.state.relatedLink}</p>
         : <p></p>

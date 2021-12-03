@@ -41,8 +41,6 @@ const App = () => {
 	},[user])
 
 	const handleSubmitTicket = formData => {
-		console.log(formData)
-		console.log('test2')
 		createTicket(formData)
 		.then(newTicketData => {
 			setTickets([...tickets, newTicketData])

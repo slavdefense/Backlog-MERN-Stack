@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 const AllTicketsComp = ({ tickets }) => {
   return (
     <div className="container">
-      {tickets.map((ticket) => {
-        return (
+      {tickets.map(ticket => {
+        return(
           <table className="table">
             <tr>
               <th>Title</th>
@@ -23,12 +23,12 @@ const AllTicketsComp = ({ tickets }) => {
               <td>{ticket.relatedLink}</td>
               <td>{ticket.status}</td>
               <td>{ticket.priority}</td>
-              <td>{ticket.submittedBy}</td>
+              <td>{ticket.submittedBy.name}</td>
             </tr>
           </table>
         )
-      })}
-    </div>
+      })
+    }</div> 
   );
 }
 
