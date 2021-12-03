@@ -13,9 +13,11 @@ import { createTicket,getTickets, updateTicket,deleteTicket } from '../../servic
 import TicketView from '../TicketView/TicketView'
 import EditTicket from '../EditTicket/EditTicket'
 import MyWork from '../MyWork/MyWork'
+import { getProfile } from '../../services/profileService'
 
 const App = () => {
 	const [user, setUser] = useState(authService.getUser())
+	const [profile, setProfile] = useState()
 	const [tickets, setTickets] = useState([])
 	const [allTickets,setAllTickets] = useState([])
 	const navigate = useNavigate()
@@ -32,6 +34,11 @@ const App = () => {
 		getTickets()
 		.then((result)=>setAllTickets(result))
 	},[])
+
+	useEffect(() => {
+		getProfile(user)
+		.then((profile) => setProfile(profile))
+	},[user])
 
 	const handleSubmitTicket = formData => {
 		console.log(formData)
@@ -62,12 +69,6 @@ const App = () => {
 		setUser(authService.getUser())
 	}
 
-
-
-
-
-
-	
 	const handleUpdateTicket = (TicketInfo) => {
 		updateTicket(TicketInfo)
 		.then(updatedTicketInfo => {
@@ -86,7 +87,7 @@ const App = () => {
 				<Route path='/login' element={<Login handleSignupOrLogin={handleSignupOrLogin} />} />
 				<Route path='/users' element={user ? <Users /> : <Navigate to='/login' />} />
 				<Route path ="/tickets" element={<AllTickets ticket={allTickets}/>}/>
-				<Route path='/myWork' element={<MyWork user={user} />} />
+				<Route path='/myWork' element={<MyWork user={user} profile={profile} />} />
 				<Route path='/addTicket' element={<AddTicket handleSubmitTicket={handleSubmitTicket} user={user}/>} />
 				<Route path='/ticketDetails' element={<TicketView user={user} handleDeleteTicket={handleDeleteTicket} />} />
 				<Route path="/editTicket" element={<EditTicket handleUpdateTicket={handleUpdateTicket} />} />

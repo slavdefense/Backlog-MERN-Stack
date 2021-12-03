@@ -1,5 +1,5 @@
 import 'dotenv/config.js'
-import express from 'express'
+import express, { application } from 'express'
 import path from 'path'
 import { fileURLToPath } from 'url'
 import logger from 'morgan'
@@ -7,6 +7,7 @@ import cors from 'cors'
 import { router as usersRouter } from './routes/users.js'
 import { router as authRouter } from './routes/auth.js'
 import {router as ticketsRouter} from './routes/tickets.js'
+import {router as profilesRouter} from './routes/profiles.js'
 
 import('./config/database.js')
 
@@ -21,6 +22,7 @@ app.use(express.json())
 app.use('/api/users', usersRouter)
 app.use('/api/auth', authRouter)
 app.use('/api/tickets',ticketsRouter)
+app.use('/api/profiles', profilesRouter)
 
 app.get('/*', function (req, res) {
   res.sendFile(

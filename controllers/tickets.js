@@ -12,6 +12,7 @@ function index(req,res){
 function create(req,res){
   User.findById(req.body.submittedBy._id)
   .then(user => {
+    console.log(user.profile)
     Profile.findById(user.profile)
     .then(profile => {
       Ticket.create(req.body)
@@ -23,6 +24,7 @@ function create(req,res){
     }) 
   })
 }
+
 function deleteTickets(req,res){
   Ticket.findByIdAndDelete(req.params.id)
   .then((ticket)=>res.json(ticket))
