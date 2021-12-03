@@ -13,7 +13,9 @@ import { createTicket,getTickets, updateTicket,deleteTicket } from '../../servic
 import TicketView from '../TicketView/TicketView'
 import EditTicket from '../EditTicket/EditTicket'
 import MyWork from '../MyWork/MyWork'
+import SearchTicket from '../SeachTicket/SearchTicket'
 import { getProfile } from '../../services/profileService'
+
 
 const App = () => {
 	const [user, setUser] = useState(authService.getUser())
@@ -89,6 +91,7 @@ const App = () => {
 				<Route path='/addTicket' element={<AddTicket handleSubmitTicket={handleSubmitTicket} user={user}/>} />
 				<Route path='/ticketDetails' element={<TicketView user={user} handleDeleteTicket={handleDeleteTicket} />} />
 				<Route path="/editTicket" element={<EditTicket handleUpdateTicket={handleUpdateTicket} />} />
+				<Route path="/Search" element={<SearchTicket/>}/>
 			</Routes>
 		</>
 	);
