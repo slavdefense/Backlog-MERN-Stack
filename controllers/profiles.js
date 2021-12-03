@@ -10,7 +10,6 @@ function show(req,res) {
           path: 'tickets'
         }
       })
-      // start by deep populating here
         .then(profile => {
           res.json(profile)
       })
