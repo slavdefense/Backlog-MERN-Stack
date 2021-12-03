@@ -27,7 +27,6 @@ const EditTicket = (props) => {
   const handleSubmit = async e => {
     e.preventDefault()
     try {
-      console.log('test1')
       props.handleUpdateTicket(formData)
       navigate('/tickets')
     } catch(e) {

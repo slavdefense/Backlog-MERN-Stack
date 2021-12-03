@@ -4,7 +4,6 @@ import './TicketView.css'
 
 const TicketView = (props) => {
   const location = useLocation()
-  console.log(location.state.title)
 
   const handleClick = (evt) => {
     evt.preventDefault()
