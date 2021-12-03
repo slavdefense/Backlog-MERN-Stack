@@ -26,7 +26,7 @@ const App = () => {
 		{name:'HOME', url:'/home'},
 		{name:'SEARCH',url:'/search'},
 		{name:'TICKETS',url:'/tickets'},
-		{name:'MY WORK',url:'/mywork'},
+		{name:'MY WORK',url:'/myWork'},
 		{name:"New Ticket",url:'/addTicket'}
 	])
 	
@@ -48,7 +48,6 @@ const App = () => {
 	}
 
 	const handleDeleteTicket = (ticket)=>{
-		console.log(ticket)
 		deleteTicket(ticket)
 		const remainingTicket = allTickets.filter((delTicket)=>{
 			return delTicket._id!== ticket
