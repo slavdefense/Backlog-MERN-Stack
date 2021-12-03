@@ -1,3 +1,4 @@
+
 import { Profile } from '../models/profile.js'
 import { Ticket } from '../models/ticket.js'
 import { User } from '../models/user.js'
@@ -23,6 +24,9 @@ function create(req,res){
   })
 }
 function deleteTickets(req,res){
+  Ticket.findByIdAndDelete(req.params.id)
+  .then((ticket)=>res.json(ticket))
+  .catch((err)=>res.json(err))
 
 }
 function update(req,res){
