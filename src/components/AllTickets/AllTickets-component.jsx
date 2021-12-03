@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const AllTicketsComp = ({tickets}) => {
+const AllTicketsComp = ({ tickets }) => {
   return (
     <div className="container">
       {tickets.map((ticket) => {
@@ -23,8 +23,7 @@ const AllTicketsComp = ({tickets}) => {
               <td>{ticket.relatedLink}</td>
               <td>{ticket.status}</td>
               <td>{ticket.priority}</td>
-              <td>{ticket.submittedBy.name}</td>
-              {console.log(ticket.submittedBy.name)}
+              <td>{ticket.submittedBy}</td>
             </tr>
           </table>
         )
