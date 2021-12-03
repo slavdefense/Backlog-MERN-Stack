@@ -5,14 +5,16 @@ import { User } from '../models/user.js'
 
 function index(req,res){
   Ticket.find({})
-  .then((tickets)=>res.json(tickets))
-
+  .populate('submittedBy')
+  .then((tickets)=> {
+    console.log(tickets)
+    res.json(tickets)
+  })
 }
 
 function create(req,res){
   User.findById(req.body.submittedBy._id)
   .then(user => {
-    console.log(user.profile)
     Profile.findById(user.profile)
     .then(profile => {
       Ticket.create(req.body)
