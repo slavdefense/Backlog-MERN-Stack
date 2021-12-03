@@ -1,4 +1,6 @@
-import {Ticket} from '../models/ticket.js'
+import { Profile } from '../models/profile.js'
+import { Ticket } from '../models/ticket.js'
+import { User } from '../models/user.js'
 
 function index(req,res){
   Ticket.find({})
@@ -7,10 +9,19 @@ function index(req,res){
 }
 
 function create(req,res){
-  Ticket.create(req.body)
-  .then(newTicket => res.json(newTicket))
+  User.findById(req.body.submittedBy._id)
+  .then(user => {
+    Profile.findById(user.profile)
+    .then(profile => {
+      Ticket.create(req.body)
+      .then(newTicket => {
+        profile.tickets.push(newTicket._id)
+        profile.save()
+        res.json(newTicket)
+    })
+    }) 
+  })
 }
-
 function deleteTickets(req,res){
 
 }
