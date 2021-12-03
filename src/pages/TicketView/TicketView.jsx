@@ -4,6 +4,12 @@ import './TicketView.css'
 
 const TicketView = (props) => {
   const location = useLocation()
+  console.log(location.state._id)
+
+  const handleClick = (evt)=>{
+    evt.preventDefault()
+    props.handleDeleteTicket(location.state._id)
+  }
   return (
     <>
     <div className="ticket-view">
@@ -18,6 +24,7 @@ const TicketView = (props) => {
         : <p></p>
       }
       <Link className="btn btn-warning" state={location.state} to="/editTicket">Edit</Link>
+      <button onClick={handleClick}> Delete</button>
     </div>
     
     </>

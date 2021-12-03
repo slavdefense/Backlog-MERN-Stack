@@ -9,7 +9,7 @@ import Users from '../Users/Users'
 import * as authService from '../../services/authService'
 import "./App.css"
 import AddTicket from '../AddTicket/AddTicket'
-import { createTicket,getTickets, updateTicket } from '../../services/ticketService'
+import { createTicket,getTickets, updateTicket,deleteTicket } from '../../services/ticketService'
 import TicketView from '../TicketView/TicketView'
 import EditTicket from '../EditTicket/EditTicket'
 import MyWork from '../MyWork/MyWork'
@@ -40,6 +40,16 @@ const App = () => {
 		.then(newTicketData => {
 			setTickets([...tickets, newTicketData])
 		})
+	}
+
+	const handleDeleteTicket = (ticket)=>{
+		console.log(ticket)
+		deleteTicket(ticket)
+		const remainingTicket = allTickets.filter((delTicket)=>{
+			return delTicket._id!== ticket
+		})
+		setAllTickets(remainingTicket)
+		navigate('/tickets')
 	}
 
 	const handleLogout = () => {
@@ -78,7 +88,7 @@ const App = () => {
 				<Route path ="/tickets" element={<AllTickets ticket={allTickets}/>}/>
 				<Route path='/myWork' element={<MyWork user={user} />} />
 				<Route path='/addTicket' element={<AddTicket handleSubmitTicket={handleSubmitTicket} user={user}/>} />
-				<Route path='/ticketDetails' element={<TicketView user={user} />} />
+				<Route path='/ticketDetails' element={<TicketView user={user} handleDeleteTicket={handleDeleteTicket} />} />
 				<Route path="/editTicket" element={<EditTicket handleUpdateTicket={handleUpdateTicket} />} />
 			</Routes>
 		</>
