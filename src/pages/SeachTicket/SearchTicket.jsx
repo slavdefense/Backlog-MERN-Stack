@@ -42,7 +42,7 @@ const SearchTicket = ({allTickets}) => {
   //  console.log(searchTickets)
 
     const filteredData = searchTickets.filter((item)=>{
-      return item.priority===formData.priority||item.title===formData.title||new Date(item.createdAt.slice(0,10).split('-')[0],parseInt(item.createdAt.slice(0,10).split('-')[1])-1,item.createdAt.slice(0,10).split('-')[2])>new Date(formData.date1.split('-')[0],parseInt(formData.date1.split('-')[1])-1,formData.date1.split('-')[2])
+      return item.priority===formData.priority||item.title===formData.title||(new Date(item.createdAt.slice(0,10).split('-')[0],parseInt(item.createdAt.slice(0,10).split('-')[1])-1,item.createdAt.slice(0,10).split('-')[2])>formDate &&new Date(item.createdAt.slice(0,10).split('-')[0],parseInt(item.createdAt.slice(0,10).split('-')[1])-1,item.createdAt.slice(0,10).split('-')[2])<formDate2)
     })
    setFilteredTicket(filteredData)  
     }
@@ -52,11 +52,16 @@ const SearchTicket = ({allTickets}) => {
     <div className="search-view">
           
       <h1>Use any fields</h1>
+
       <form action="" onSubmit={handleSubmit}>
+
         <input type="text" onChange={handleChange} name="title" placeholder="search"/>
-        <input type="date" onChange={handleChange} name="date1" id="" value={formData.date1} />
-        <input type="date" onChange={handleChange} name="date2" id=""
+        <label htmlFor="from">From</label>
+        <input type="date" onChange={handleChange} name="date1" id="from" value={formData.date1} />
+        <label htmlFor="to">To</label>
+        <input type="date" onChange={handleChange} name="date2" id="to"
         value={formData.date2} />
+        <label htmlFor="">Priority</label>
         <select onChange={handleChange}
           name="priority"
          
