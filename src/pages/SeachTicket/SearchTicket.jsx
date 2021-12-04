@@ -103,9 +103,7 @@ const SearchTicket = ({allTickets}) => {
                 <th>Submitted By</th>
               </tr>
               <tr>
-                {/* <Link to="/ticketDetails" state={ticket}>
-                  <td>{ticket.title}</td>
-                </Link> */}
+               
                 <td>{item.description}</td>
                 <td>{item.relatedLink}</td>
                 <td>{item.status}</td>
