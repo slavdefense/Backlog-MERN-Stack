@@ -37,9 +37,11 @@ function updateTicket(ticketData) {
   .then(res => res.json())
 }
 
+
+
 export{
   createTicket,
   getTickets,
   deleteTicket,
-  updateTicket
+  updateTicket,
 }

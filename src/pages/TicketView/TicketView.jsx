@@ -20,7 +20,8 @@ const TicketView = (props) => {
             <h5>Description</h5>
             <h6 class="card-text">{location.state.description}</h6><br />
             <p>Priority Level: {location.state.priority}</p><br />
-            <p>Submitted By: {location.state.submittedBy.name}</p>
+            <p>Submitted By: {location.state.submittedBy.name}</p><br />
+            <p>Assigned To: {location.state.assignedTo.name}</p><br />
             {
               (location.state.relatedLink) ?
                 <p>Related Link: {location.state.relatedLink}</p>

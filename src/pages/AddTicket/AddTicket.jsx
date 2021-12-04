@@ -1,16 +1,30 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { useEffect } from 'react/cjs/react.development'
 import './AddTicket.css'
 
 const AddTicket = (props) => {
+  const today = new Date().toLocaleString() + ''
   const [formData, setFormData] = useState({
     title: '',
     description: '',
     relatedLink: '',
     status: 'Not started',
-    priority: '',
-    submittedBy: props.user,
+    priority: "High",
+    submittedBy: {},
+    startDate: today,
+    completedDate: '',
+    assignedTo: ''
   })
+
+  useEffect(() => {
+    if (props.profile !== undefined) {
+    setFormData({
+      ...formData,
+      submittedBy: props.profile._id
+    })
+    }
+  },[props.profile])
 
   const navigate = useNavigate()
 
@@ -32,11 +46,17 @@ const AddTicket = (props) => {
   }
 
   const isFormInvalid = () => {
-    return !(title && description && priority)
+    return !(title && description && priority && assignedTo)
   }
 
-  const {title, description, priority, relatedLink} = formData
+  const {title, description, priority, relatedLink, assignedTo} = formData
 
+  if (props.profile === undefined) {
+    return (
+      <>
+      </>
+    )
+  } else {
   return ( 
     <div className="addTicket">
     <h1>Add Ticket</h1>
@@ -45,6 +65,11 @@ const AddTicket = (props) => {
       onSubmit={handleSubmit}
     >
       <div className="inputs">
+        <input 
+          type="hidden" 
+          name="submittedBy" 
+          value={props.profile._id}
+        />
         <label>
           <h4>Title</h4>
         </label>
@@ -112,6 +137,23 @@ const AddTicket = (props) => {
         </select>
         <br /><br />
         <label>
+          <h4>Assignee</h4>
+        </label>
+        <br />
+        <select
+          onChange={handleChange}
+          name="assignedTo"
+        >
+        {props.allProfiles.map(profile => {
+        return (
+          <option value={profile._id}>
+            {profile.name}
+          </option>
+        )}
+        )}
+        </select>
+        <br /><br />
+        <label>
           <h4>Add an image</h4>
         </label>
         <br />
@@ -124,6 +166,7 @@ const AddTicket = (props) => {
     </form>
     </div>
   );
+}
 }
 
 export default AddTicket;
