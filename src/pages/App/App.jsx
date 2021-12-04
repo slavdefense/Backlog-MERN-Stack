@@ -90,7 +90,7 @@ const App = () => {
 				<Route path='/addTicket' element={<AddTicket handleSubmitTicket={handleSubmitTicket} user={user}/>} />
 				<Route path='/ticketDetails' element={<TicketView user={user} handleDeleteTicket={handleDeleteTicket} />} />
 				<Route path="/editTicket" element={<EditTicket handleUpdateTicket={handleUpdateTicket} />} />
-				<Route path="/Search" element={<SearchTicket/>}/>
+				<Route path="/Search" element={<SearchTicket allTickets={allTickets}/>}/>
 			</Routes>
 		</>
 	);
