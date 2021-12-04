@@ -2,6 +2,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const AllTicketsComp = ({ tickets }) => {
+  if (tickets === undefined) {
+    return (
+      <>
+      </>
+    )
+  } else {
   return (
     <div className="container">
       {tickets.map(ticket => {
@@ -23,6 +29,8 @@ const AllTicketsComp = ({ tickets }) => {
                 <td>{ticket.relatedLink}</td>
                 <td>{ticket.status}</td>
                 <td>{ticket.priority}</td>
+                {console.log('before')}
+                {console.log(ticket.assignedTo)}
                 <td>{ticket.submittedBy.name}</td>
               </tr>
             </table>
@@ -30,6 +38,7 @@ const AllTicketsComp = ({ tickets }) => {
       })
     }</div> 
   );
+}
 }
 
 export default AllTicketsComp;

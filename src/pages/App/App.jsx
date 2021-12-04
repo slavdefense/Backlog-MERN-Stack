@@ -14,7 +14,7 @@ import TicketView from '../TicketView/TicketView'
 import EditTicket from '../EditTicket/EditTicket'
 import MyWork from '../MyWork/MyWork'
 import SearchTicket from '../SeachTicket/SearchTicket'
-import { getProfile } from '../../services/profileService'
+import { getProfile, getAllProfiles } from '../../services/profileService'
 
 
 const App = () => {
@@ -22,6 +22,8 @@ const App = () => {
 	const [profile, setProfile] = useState()
 	const [tickets, setTickets] = useState([])
 	const [allTickets,setAllTickets] = useState([])
+	const [allProfiles, setAllProfiles] = useState([])
+
 	const navigate = useNavigate()
 
 	const [navComponents,setNavComponents] = useState([
@@ -36,6 +38,11 @@ const App = () => {
 		getTickets()
 		.then((result)=>setAllTickets(result))
 	},[tickets])
+
+	useEffect(() => {
+		getAllProfiles()
+		.then((result) => setAllProfiles(result))
+	},[])
 
 	useEffect(() => {
 		getProfile(user)
@@ -86,10 +93,10 @@ const App = () => {
 				<Route path='/login' element={<Login handleSignupOrLogin={handleSignupOrLogin} />} />
 				<Route path='/users' element={user ? <Users /> : <Navigate to='/login' />} />
 				<Route path ="/tickets" element={<AllTickets ticket={allTickets}/>}/>
-				<Route path='/myWork' element={<MyWork user={user} profile={profile} />} />
-				<Route path='/addTicket' element={<AddTicket handleSubmitTicket={handleSubmitTicket} user={user}/>} />
+				<Route path='/myWork' element={<MyWork profile={profile} />} />
+				<Route path='/addTicket' element={<AddTicket handleSubmitTicket={handleSubmitTicket} profile={profile} allProfiles={allProfiles}/>} />
 				<Route path='/ticketDetails' element={<TicketView user={user} handleDeleteTicket={handleDeleteTicket} />} />
-				<Route path="/editTicket" element={<EditTicket handleUpdateTicket={handleUpdateTicket} />} />
+				<Route path="/editTicket" element={<EditTicket handleUpdateTicket={handleUpdateTicket} allProfiles={allProfiles} user={user} profile={profile}/>} />
 				<Route path="/Search" element={<SearchTicket allTickets={allTickets}/>}/>
 			</Routes>
 		</>

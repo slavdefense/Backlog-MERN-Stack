@@ -43,7 +43,6 @@ const EditTicket = (props) => {
 
   return ( 
     <>
-    
       <div id="edit-view-header">
       <h1>Edit Ticket:  </h1>
       </div>
@@ -70,7 +69,6 @@ const EditTicket = (props) => {
         </label>
         <br />
         <textarea
-          placeholder="Describe the problem here. Include any relevant information and details."
           cols="30" 
           rows="10"
           name="description"
@@ -124,13 +122,30 @@ const EditTicket = (props) => {
         </label>
         <br />
         <input 
-        type="file"
+          type="file"
         />
+        <br /><br />
+        <label>
+          <h4>Assignee</h4>
+        </label>
+        <br />
+        <select
+          onChange={handleChange}
+          name="assignedTo"
+        >
+        {props.allProfiles.map(profile => {
+        return (
+          <option value={profile._id}>
+            {profile.name}
+          </option>
+        )}
+        )}
+        </select>
       </div>
       <br />
-        <button className="btn btn-warning" disabled={isFormInvalid()}>Edit Ticket</button>
+        <button className="btn btn-success" disabled={isFormInvalid()}>Submit Changes</button>
         <Link  to="/tickets">
-          <button className="btn btn-success">
+          <button className="btn btn-warning">
             Back To Tickets
           </button>
         </Link>
