@@ -10,6 +10,14 @@ function getProfile(user) {
   .then(res => res.json())
 }
 
+function getAllProfiles() {
+  return fetch(BASE_URL, {
+    headers: {'Authorization': `Bearer ${tokenService.getToken()}`},
+  })
+  .then(res => res.json())
+}
+
 export {
-  getProfile
+  getProfile,
+  getAllProfiles
 }

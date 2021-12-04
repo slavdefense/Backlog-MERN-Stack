@@ -12,8 +12,8 @@ const MyWork = props => {
     return (
       <>
         <div className="myWork">
-          <h1>Hello, {props.user.name}</h1>
-          {profile.profile && profile.profile.tickets.map((ticket) => {
+          <h1>Hello, {profile.name}</h1>
+          {profile && profile.tickets.map((ticket) => {
             return (
               <>
                 <h3>Your tickets</h3>
