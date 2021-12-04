@@ -10,10 +10,25 @@ const SearchTicket = ({allTickets}) => {
   const [formData,setFormData]= useState({
     title:'',
     priority:'',
-    date1:'',
-    date2:''
+    date1:'2021-12-03',
+    date2:'2021-12-07'
   })
 
+  // const date1 = formData.date1.split('-')
+  // console.log(date1)
+
+  const formDate =new Date(formData.date1.split('-')[0],parseInt(formData.date1.split('-')[1])-1,formData.date1.split('-')[2])
+  console.log(formDate)
+
+  const formDate2 =new Date(formData.date2.split('-')[0],parseInt(formData.date2.split('-')[1])-1,formData.date2.split('-')[2])
+  console.log(formDate2)
+  console.log(formDate<formDate2)
+  // const formDate2 =new Date(formData.date2.split('-')[2],parseInt(formData.date2.split('-')[1])-1,formData.date2.split('-')[0])
+  // console.log(formDate2)
+
+  // console.log(formData.date1)
+  // console.log(formData.date2)
+  // console.log(searchTickets[0].createdAt.slice(0,10))
   useEffect(()=>{
     setSearchTickets(allTickets)
   },[])
@@ -24,10 +39,10 @@ const SearchTicket = ({allTickets}) => {
  
   const handleSubmit=(evt)=>{
     evt.preventDefault()
-   console.log(searchTickets)
+  //  console.log(searchTickets)
 
     const filteredData = searchTickets.filter((item)=>{
-      return item.priority===formData.priority||item.title===formData.title
+      return item.priority===formData.priority||item.title===formData.title||new Date(item.createdAt.slice(0,10).split('-')[0],parseInt(item.createdAt.slice(0,10).split('-')[1])-1,item.createdAt.slice(0,10).split('-')[2])>new Date(formData.date1.split('-')[0],parseInt(formData.date1.split('-')[1])-1,formData.date1.split('-')[2])
     })
    setFilteredTicket(filteredData)  
     }
@@ -39,9 +54,9 @@ const SearchTicket = ({allTickets}) => {
       <h1>Use any fields</h1>
       <form action="" onSubmit={handleSubmit}>
         <input type="text" onChange={handleChange} name="title" placeholder="search"/>
-        <input type="date" onChange={handleChange} name="date1" id="" value="date" />
+        <input type="date" onChange={handleChange} name="date1" id="" value={formData.date1} />
         <input type="date" onChange={handleChange} name="date2" id=""
-        value="date" />
+        value={formData.date2} />
         <select onChange={handleChange}
           name="priority"
          
