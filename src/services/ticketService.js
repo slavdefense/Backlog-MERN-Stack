@@ -37,6 +37,16 @@ function updateTicket(ticketData) {
   .then(res => res.json())
 }
 
+function addComment(commentInfo) {
+  return fetch(`${BASE_URL}/${commentInfo.ticketId}/comments`, {
+    method: 'POST',
+    headers: {
+      'Authorization': `Bearer ${tokenService.getToken()}`, 'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(commentInfo)
+  })
+  .then(res => res.json())
+}
 
 
 export{
@@ -44,4 +54,5 @@ export{
   getTickets,
   deleteTicket,
   updateTicket,
+  addComment
 }

@@ -1,5 +1,6 @@
 import userEvent from "@testing-library/user-event";
 import { useLocation, Link } from "react-router-dom";
+import CommentForm from "../../components/CommentForm/CommentForm";
 import './TicketView.css'
 
 const TicketView = (props) => {
@@ -30,8 +31,15 @@ const TicketView = (props) => {
           </div>
         </div>
         <Link className="btn btn-warning" state={location.state} to="/editTicket">Edit</Link>
-        <button onClick={handleClick}> Delete</button>
+        <div>
+        <button className="btn btn-danger" onClick={handleClick}> Delete</button>
+        </div>
+        <div className= "comment-form">
+        <CommentForm handleAddComment={props.handleAddComment} ticketId={location.state._id}/>
+        </div>
       </div >
+      
+
 
     </>
   );

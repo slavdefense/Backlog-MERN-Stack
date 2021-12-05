@@ -16,6 +16,7 @@ router.use(decodeUserFromToken)
 router.post('/', checkAuth, ticketCtrl.create)
 router.patch('/:id', checkAuth, ticketCtrl.update)
 router.delete('/:id', checkAuth, ticketCtrl.delete)
+router.post("/:id/comments", checkAuth, ticketCtrl.addComment)
 
 export {
   router
