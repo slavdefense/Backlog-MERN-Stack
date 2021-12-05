@@ -15,6 +15,8 @@ import EditTicket from '../EditTicket/EditTicket'
 import MyWork from '../MyWork/MyWork'
 import SearchTicket from '../SeachTicket/SearchTicket'
 import { getProfile, getAllProfiles } from '../../services/profileService'
+// import Map from '../../components/Map/map'
+// import 'mapbox-gl/dist/mapbox-gl.css';
 
 
 const App = () => {
@@ -98,6 +100,7 @@ const App = () => {
 				<Route path='/ticketDetails' element={<TicketView user={user} handleDeleteTicket={handleDeleteTicket} />} />
 				<Route path="/editTicket" element={<EditTicket handleUpdateTicket={handleUpdateTicket} allProfiles={allProfiles} user={user} profile={profile}/>} />
 				<Route path="/Search" element={<SearchTicket allTickets={allTickets}/>}/>
+				{/* <Route path="/map" element = {<Map/>}/> */}
 			</Routes>
 		</>
 	);
