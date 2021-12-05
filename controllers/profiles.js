@@ -6,9 +6,12 @@ function show(req, res) {
     .then(user => {
       user.populate({
         path: 'profile',
-        populate: {
-          path: 'tickets'
-        }
+        populate: [{
+          path: 'ticketsSubmitted', 
+        },
+        {
+          path: 'ticketsAssigned'
+        }]
       })
         .then(user => {
           res.json(user.profile)
@@ -18,7 +21,7 @@ function show(req, res) {
 
 function index(req, res) {
   Profile.find({})
-    .populate('tickets')
+    .populate('ticketsSubmitted')
       .then(profiles => {
         res.json(profiles)
       })

@@ -14,7 +14,8 @@ const profileSchema = new mongoose.Schema(
   {
     name: String,
     avatar: String,
-    tickets: [{type: mongoose.Types.ObjectId, ref:"Ticket"}],
+    ticketsAssigned: [{type: mongoose.Types.ObjectId, ref:"Ticket"}],
+    ticketsSubmitted: [{type: mongoose.Types.ObjectId, ref:"Ticket"}],
     team: [teamSchema] 
   },
   {
