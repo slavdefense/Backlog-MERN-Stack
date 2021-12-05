@@ -29,8 +29,6 @@ const AllTicketsComp = ({ tickets }) => {
                 <td>{ticket.relatedLink}</td>
                 <td>{ticket.status}</td>
                 <td>{ticket.priority}</td>
-                {console.log('before')}
-                {console.log(ticket.assignedTo)}
                 <td>{ticket.submittedBy.name}</td>
               </tr>
             </table>

@@ -7,28 +7,26 @@ function index(req,res){
   .populate('submittedBy')
   .populate('assignedTo')
   .then((tickets)=> {
-    console.log(tickets)
     res.json(tickets)
   })
 }
 
 function create(req,res){
-  console.log(req.body)
   Profile.findById(req.body.submittedBy)
   .then(profile => {
     Ticket.create(req.body)
     .then(newTicket => {
-      // Profile.findById(req.body.assignedTo._id)
-        // .then(assignedToProfile => {
-          // console.log(assignedToProfile)
-          // assignedToProfile.tickets.push(newTicket._id)
-          // assignedToProfile.save()
+      Profile.findById(req.body.assignedTo)
+        .then(assignedToProfile => {
+          console.log(assignedToProfile)
+          assignedToProfile.tickets.push(newTicket._id)
+          assignedToProfile.save()
           profile.tickets.push(newTicket._id)
           profile.save()
           res.json(newTicket)    
         })
   })
-  // })
+  })
 }
 
 function deleteTickets(req,res){
