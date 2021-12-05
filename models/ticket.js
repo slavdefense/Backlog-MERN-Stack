@@ -25,7 +25,8 @@ const ticketSchema = new mongoose.Schema(
     assignedTo: {type: mongoose.Schema.Types.ObjectId, ref: "Profile"},
     submittedBy: {type: mongoose.Schema.Types.ObjectId, ref: "Profile"},
     relatedLink: String,
-    comments: [commentSchema]
+    comments: [commentSchema],
+    image: String
   },
   {
     timestamps: true,
