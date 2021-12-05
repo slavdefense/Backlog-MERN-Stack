@@ -18,7 +18,8 @@ const Map = (props) => {
 
   return (
     <div>
-      <h1>Hi</h1>
+      <h1>This is my Map page </h1>
+      <h3>{props.officeLocation}</h3>
 
     </div>
 

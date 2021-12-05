@@ -22,6 +22,7 @@ const ticketSchema = new mongoose.Schema(
       enum: ["Not started", "In progress", "Completed"],
       default: "Not started"
     },
+    officeLocation:{type:String},
     assignedTo: {type: mongoose.Schema.Types.ObjectId, ref: "Profile"},
     submittedBy: {type: mongoose.Schema.Types.ObjectId, ref: "Profile"},
     relatedLink: String,

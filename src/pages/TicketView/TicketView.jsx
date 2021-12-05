@@ -1,9 +1,13 @@
 import userEvent from "@testing-library/user-event";
 import { useLocation, Link } from "react-router-dom";
 import './TicketView.css'
+import Map from "../../components/Map/map";
 
 const TicketView = (props) => {
   const location = useLocation()
+  console.log(location.state.officeLocation)
+
+  
 
   const handleClick = (evt) => {
     evt.preventDefault()
@@ -28,7 +32,10 @@ const TicketView = (props) => {
                 : <p></p>
             }
           </div>
+      
         </div>
+        <Map officeLocation = {location.state.officeLocation}/>
+
         <Link className="btn btn-warning" state={location.state} to="/editTicket">Edit</Link>
         <button onClick={handleClick}> Delete</button>
       </div >
