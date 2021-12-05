@@ -20,11 +20,11 @@ function create(req, res) {
             .then(assignedToProfile => {
               assignedToProfile.ticketsAssigned.push(newTicket._id)
               assignedToProfile.save()
-              .then(() => {
-                userProfile.ticketsSubmitted.push(newTicket._id)
-                userProfile.save()
-                res.json(newTicket)
-              })
+                .then(() => {
+                  userProfile.ticketsSubmitted.push(newTicket._id)
+                  userProfile.save()
+                  res.json(newTicket)
+                })
             })
         })
     })
@@ -57,21 +57,30 @@ async function update(req, res) {
 }
 
 function addComment(req, res) {
-  req.body.author = req.user.Profile
+  req.body.author = req.user.profile
   Ticket.findById(req.params.id)
-  .then(ticket => {
-    ticket.comments.push(req.body)
-    ticket.save()
-    .then(savedTicket => {
-      savedTicket.populate("author")
-      .then(returnedTicket => {
-        res.json(returnedTicket)
-      })
+    .then(ticket => {
+      ticket.comments.push(req.body)
+      ticket.save()
+        .then(savedTicket => {
+          savedTicket.populate("author")
+            .then(returnedTicket => {
+              returnedTicket.populate({
+                path: "comments",
+                populate: {
+                  path: "author"
+                }
+              })
+                .then(ticketwithAuthor => {
+                  res.json(ticketwithAuthor)
+
+                })
+            })
+
+        })
+
 
     })
-    
-
-  })
 }
 
 

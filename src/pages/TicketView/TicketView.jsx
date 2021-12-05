@@ -32,13 +32,30 @@ const TicketView = (props) => {
         </div>
         <Link className="btn btn-warning" state={location.state} to="/editTicket">Edit</Link>
         <div>
-        <button className="btn btn-danger" onClick={handleClick}> Delete</button>
+          <button className="btn btn-danger" onClick={handleClick}> Delete</button>
         </div>
-        <div className= "comment-form">
-        <CommentForm handleAddComment={props.handleAddComment} ticketId={location.state._id}/>
+        <br />
+        {location.state.comments.length ?
+          <>
+            <h2>Comments: </h2>
+            {location.state.comments.map(comment =>
+
+              <div key={comment._id}>
+                <p>{comment.content} - {comment.author.name}</p>
+              </div>
+
+            )}
+          </>
+          :
+          <h4>no comments...</h4>
+        }
+
+        <br />
+        <div className="comment-form">
+          <CommentForm handleAddComment={props.handleAddComment} ticketId={location.state._id} />
         </div>
       </div >
-      
+
 
 
     </>
