@@ -56,10 +56,31 @@ async function update(req, res) {
   res.json(updatedTicket)
 }
 
+function addComment(req, res) {
+  req.body.author = req.user.Profile
+  Ticket.findById(req.params.id)
+  .then(ticket => {
+    ticket.comments.push(req.body)
+    ticket.save()
+    .then(savedTicket => {
+      savedTicket.populate("author")
+      .then(returnedTicket => {
+        res.json(returnedTicket)
+      })
+
+    })
+    
+
+  })
+}
+
+
+
 
 export {
   index,
   create,
   deleteTickets as delete,
-  update
+  update,
+  addComment
 }
