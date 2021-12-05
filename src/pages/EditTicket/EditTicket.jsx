@@ -14,6 +14,7 @@ const EditTicket = (props) => {
     status: location.state.status,
     priority: location.state.priority,
     submittedBy: location.state.submittedBy,
+    assignedTo: location.state.assignedTo,
     id: location.state._id,
   })
 
