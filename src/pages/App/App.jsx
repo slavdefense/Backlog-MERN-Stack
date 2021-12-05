@@ -15,6 +15,7 @@ import EditTicket from '../EditTicket/EditTicket'
 import MyWork from '../MyWork/MyWork'
 import SearchTicket from '../SeachTicket/SearchTicket'
 import { getProfile, getAllProfiles } from '../../services/profileService'
+import { addComment } from '@babel/types'
 
 
 const App = () => {
@@ -84,6 +85,17 @@ const App = () => {
 		})
 	}
 
+	const handleAddComment = commentInfo => {
+		addComment(commentInfo)
+		.then(updatedTicketInfo => {
+			const newTicketArray = tickets.map(ticket => 
+				ticket._id === updatedTicketInfo._id ? updatedTicketInfo : ticket)
+			setTickets(newTicketArray)
+			navigate("/ticketDetails", {state: updatedTicketInfo})
+		})
+		
+	}
+
 	return (
 		<>
 			<NavBar navComponents={navComponents} user={user} handleLogout={handleLogout} />
@@ -95,7 +107,7 @@ const App = () => {
 				<Route path ="/tickets" element={<AllTickets ticket={allTickets}/>}/>
 				<Route path='/myWork' element={<MyWork profile={profile} />} />
 				<Route path='/addTicket' element={<AddTicket handleSubmitTicket={handleSubmitTicket} profile={profile} allProfiles={allProfiles}/>} />
-				<Route path='/ticketDetails' element={<TicketView user={user} handleDeleteTicket={handleDeleteTicket} />} />
+				<Route path='/ticketDetails' element={<TicketView user={user} handleDeleteTicket={handleDeleteTicket} handleAddComment= {handleAddComment} />} />
 				<Route path="/editTicket" element={<EditTicket handleUpdateTicket={handleUpdateTicket} allProfiles={allProfiles} user={user} profile={profile}/>} />
 				<Route path="/Search" element={<SearchTicket allTickets={allTickets}/>}/>
 			</Routes>
