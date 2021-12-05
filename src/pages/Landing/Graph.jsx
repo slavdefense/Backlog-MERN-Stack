@@ -1,31 +1,31 @@
 import React from 'react';
 import "./Graph.css"
 const Graph = ({graphAllTickets}) => {
+
+
+
+
   return ( 
-    <div>
-      <h2>Hello This is Graph Page</h2>
-      {
-        graphAllTickets?
+    <div className="graphs">
+    <div className="priority-bar">
+      <label htmlFor="low">Low</label>
+      <div id="low" className="priority-bar-fill" style={{'height':'80%'}}>
+      </div>
 
+    </div>
+    <div className="priority-bar">
+      <label htmlFor="medium">Medium</label>
+      <div id="medium" className="priority-bar-fill" style={{'height':'80%'}}>
+      </div>
 
-        <div>
+    </div>
+    <div className="priority-bar">
+      <label htmlFor="high">High</label>
+      <div id="high" className="priority-bar-fill" style={{'height':'80%'}}>
+      </div>
 
-{graphAllTickets.map((item)=>{
-          return(
-            <span>{item.priority}</span>
-  
-  
-          )
-         
-        })
-  
-        }
-        </div>
-        
-        :''
-
-
-      }
+    </div>
+   
     </div>
     
    );

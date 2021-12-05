@@ -20,8 +20,8 @@ const Landing = ({user,allTickets}) => {
       </h1>
       <h1>3 Graphs</h1>
 
-{/*       
-    <Graph graphAllTickets={graphAllTickets}/> */}
+      
+    <Graph graphAllTickets={graphAllTickets}/>
      
 
     </main>
