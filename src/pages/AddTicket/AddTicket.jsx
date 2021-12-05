@@ -11,6 +11,7 @@ const AddTicket = (props) => {
     relatedLink: '',
     status: 'Not started',
     priority: "High",
+    officeLocation:'',
     submittedBy: {},
     startDate: today,
     completedDate: '',
@@ -49,7 +50,7 @@ const AddTicket = (props) => {
     return !(title && description && priority && assignedTo)
   }
 
-  const {title, description, priority, relatedLink, assignedTo} = formData
+  const {title, description, priority, relatedLink, assignedTo,officeLocation} = formData
 
   if (props.profile === undefined) {
     return (
@@ -95,6 +96,18 @@ const AddTicket = (props) => {
           value={description}
         />
         <br /><br />
+        <label>
+          <h4> Office Location</h4>
+        </label>
+        <br/>
+        <input type="text"
+        value={officeLocation}
+        placeholder="Hollywood"
+        onChange={handleChange}
+        name="officeLocation"
+        
+         />
+        <br/>
         <label>
           <h4>Link</h4>
         </label>
