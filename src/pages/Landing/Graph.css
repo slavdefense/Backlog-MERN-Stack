@@ -1,0 +1,41 @@
+
+
+  .graphs{
+    display: flex;
+    width:850px;
+    justify-content: space-between;
+
+    
+  }
+  .priority-bar{
+    height:300px;
+    width:80px;
+    background-color: darkgreen;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    font-size: 15px;
+    font-weight: 900;
+
+  }
+
+  .priority-bar-fill{
+    background-color: red;
+    width:100%;
+   text-align: center;
+   
+
+  }
+
+  .circle{
+    width:300px;
+    height: 300px;
+   border: 1px solid black;
+   border-radius: 50%; 
+   background-color:black;
+   background-image: conic-gradient(orange 64%, blue 17%, black);
+    }
+
+    .sp{
+      margin-left: 16px;
+    }

@@ -103,7 +103,7 @@ const SearchTicket = ({allTickets}) => {
                 <th>Submitted By</th>
               </tr>
               <tr>
-               
+                <td>{item.title}</td>
                 <td>{item.description}</td>
                 <td>{item.relatedLink}</td>
                 <td>{item.status}</td>

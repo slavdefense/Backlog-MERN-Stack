@@ -88,7 +88,7 @@ const App = () => {
 		<>
 			<NavBar navComponents={navComponents} user={user} handleLogout={handleLogout} />
 			<Routes>
-				<Route path='/' element={<Landing user={user} />} />
+				<Route path='/' element={<Landing user={user} allTickets={allTickets} />} />
 				<Route path='/signup' element={<Signup handleSignupOrLogin={handleSignupOrLogin} />} />
 				<Route path='/login' element={<Login handleSignupOrLogin={handleSignupOrLogin} />} />
 				<Route path='/users' element={user ? <Users /> : <Navigate to='/login' />} />
