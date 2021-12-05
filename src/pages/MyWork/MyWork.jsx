@@ -13,7 +13,7 @@ const MyWork = props => {
       <>
         <div className="myWork">
           <h1>Hello, {profile.name}</h1>
-          {profile && profile.tickets.map((ticket) => {
+          {profile && profile.ticketsAssigned.map((ticket) => {
             return (
               <>
                 <h3>Your tickets</h3>
@@ -37,9 +37,34 @@ const MyWork = props => {
             )
           })
           }
-        </div>
+          <h3>Tickets you've submitted:</h3>
+          {profile && profile.ticketsSubmitted.map((ticket) => {
+            return (
+              <>
+                <table className="table">
+                  <thead>
+                    <tr>
+                      <th scope="col">Title</th>
+                      <th scope="col">Description</th>
+                      <th scope="col">Status</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>{ticket.title}</td>
+                      <td>{ticket.description}</td>
+                      <td>{ticket.status}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </>
+            )
+          })
+          }
+      </div>
       </>
     );
   }
 }
+
 export default MyWork;
