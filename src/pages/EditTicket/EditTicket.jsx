@@ -35,6 +35,7 @@ const EditTicket = (props) => {
         const data = new FormData()
         data.append('file', image)
         data.append("upload_preset", "uurkvmkp")
+        data.append('folder', 'backlog')
         data.append("cloud_name", "meilingb")
         const res = await (await fetch("https://api.cloudinary.com/v1_1/meilingb/image/upload", {
           method: "post",
