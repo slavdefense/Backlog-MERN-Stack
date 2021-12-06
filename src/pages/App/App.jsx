@@ -85,8 +85,8 @@ const App = () => {
 		})
 	}
 
-	const handleAddComment = commentInfo => {
-		addComment(commentInfo)
+	const handleAddComment = commentFormData => {
+		addComment(commentFormData)
 		.then(updatedTicketInfo => {
 			const newTicketArray = tickets.map(ticket => 
 				ticket._id === updatedTicketInfo._id ? updatedTicketInfo : ticket)
