@@ -1,14 +1,12 @@
 import userEvent from "@testing-library/user-event";
 import { useLocation, Link } from "react-router-dom";
 import CommentForm from "../../components/CommentForm/CommentForm";
+import ApiCall from "../ApiCall/Map-api-call";
 import './TicketView.css'
-import Map from "../../components/Map/map";
+
 
 const TicketView = (props) => {
   const location = useLocation()
-  console.log(location.state.officeLocation)
-
-  
 
   const handleClick = (evt) => {
     evt.preventDefault()
@@ -33,10 +31,7 @@ const TicketView = (props) => {
                 : <p></p>
             }
           </div>
-      
         </div>
-        <Map officeLocation = {location.state.officeLocation}/>
-
         <Link className="btn btn-warning" state={location.state} to="/editTicket">Edit</Link>
         <div>
         <button className="btn btn-danger" onClick={handleClick}> Delete</button>
@@ -44,6 +39,8 @@ const TicketView = (props) => {
         <div className= "comment-form">
         <CommentForm handleAddComment={props.handleAddComment} ticketId={location.state._id}/>
         </div>
+        <ApiCall wantedData={location.state.officeLocation}/>
+        
       </div >
       
 
