@@ -4,7 +4,8 @@ import React, { useState } from 'react'
 const CommentForm = (props) => {
   const [formData, setFormData] = useState({
     content: '',
-    ticketId: props.ticketId
+    ticketId: props.ticketId,
+    author: ''
   })
 
   const handleChange = e => {
