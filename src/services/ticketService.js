@@ -37,13 +37,13 @@ function updateTicket(ticketData) {
   .then(res => res.json())
 }
 
-function addComment(commentInfo) {
-  return fetch(`${BASE_URL}/${commentInfo.ticketId}/comments`, {
+function addComment(commentFormData) {
+  return fetch(`${BASE_URL}/${commentFormData.ticketId}/comments`, {
     method: 'POST',
     headers: {
       'Authorization': `Bearer ${tokenService.getToken()}`, 'Content-Type': 'application/json'
     },
-    body: JSON.stringify(commentInfo)
+    body: JSON.stringify(commentFormData)
   })
   .then(res => res.json())
 }
