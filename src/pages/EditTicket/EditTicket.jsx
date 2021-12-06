@@ -6,6 +6,7 @@ import './EditTicket.css'
 const EditTicket = (props) => {
   const location = useLocation()
   const navigate = useNavigate()
+  const [image, setImage] = useState('');
 
   const [formData, setFormData] = useState({
     title: location.state.title,
@@ -16,6 +17,7 @@ const EditTicket = (props) => {
     submittedBy: location.state.submittedBy,
     assignedTo: location.state.assignedTo,
     id: location.state._id,
+    image: location.state.image
   })
 
   const handleChange = e => {
@@ -28,7 +30,20 @@ const EditTicket = (props) => {
   const handleSubmit = async e => {
     e.preventDefault()
     try {
-      props.handleUpdateTicket(formData)
+      let finalFormData = {...formData}
+      if (image) {
+        const data = new FormData()
+        data.append('file', image)
+        data.append("upload_preset", "uurkvmkp")
+        data.append("cloud_name", "meilingb")
+        const res = await (await fetch("https://api.cloudinary.com/v1_1/meilingb/image/upload", {
+          method: "post",
+          body: data
+        })).json()
+        console.log(res.url)
+        finalFormData['image'] = res.url;
+      }
+      props.handleUpdateTicket(finalFormData)
       navigate('/tickets')
     } catch(e) {
       console.log(e)
@@ -124,6 +139,8 @@ const EditTicket = (props) => {
         <br />
         <input 
           type="file"
+          name="image"
+          onChange={(e) => setImage(e.target.files[0])}
         />
         <br /><br />
         <label>
@@ -134,6 +151,7 @@ const EditTicket = (props) => {
           onChange={handleChange}
           name="assignedTo"
         >
+          <option value="">-- Select a user --</option>
         {props.allProfiles.map(profile => {
         return (
           <option value={profile._id}>

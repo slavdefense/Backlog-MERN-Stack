@@ -51,7 +51,6 @@ const AddTicket = (props) => {
           method: "post",
           body: data
         })).json()
-        console.log(res.url)
         finalFormData['image'] = res.url;
       }
       props.handleSubmitTicket(finalFormData)
@@ -171,6 +170,7 @@ const AddTicket = (props) => {
               onChange={handleChange}
               name="assignedTo"
             >
+              <option value="">-- Select a user --</option>
               {props.allProfiles.map(profile => {
                 return (
                   <option value={profile._id}>
