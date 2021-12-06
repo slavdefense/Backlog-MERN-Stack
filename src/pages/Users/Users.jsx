@@ -1,22 +1,25 @@
 import React, { useState, useEffect } from 'react';
-import * as userService from '../../services/userService'
+import * as profileService from '../../services/profileService'
 import './User.css'
+import { Link } from 'react-router-dom'
 
-const Users = () => {
-  const [users, setUsers] = useState([])
+const Users = (props) => {
+  const [profiles, setProfiles] = useState([])
 
   useEffect(()=> {
-    userService.getAllUsers()
-    .then(users => setUsers(users))
+    profileService.getAllProfiles()
+    .then(profiles => setProfiles(profiles))
   }, [])
 
   return (
-    <div className="User-List container">
+    <div className="user-list container">
       <h1>Hello.  This is a list of all the users.</h1>
-      {users.length ? 
+      {profiles.length ? 
       <>
-        {users.map(user=>
-          <p key={user._id}>{user.name}</p>
+        {profiles.map(profile=>
+          <Link to="/viewUser" state={profile}>
+          <p key={profile._id}>{profile.name}</p>
+          </Link>
         )}
       </>
       :
@@ -25,5 +28,5 @@ const Users = () => {
     </div>
   );
 }
- 
+
 export default Users;

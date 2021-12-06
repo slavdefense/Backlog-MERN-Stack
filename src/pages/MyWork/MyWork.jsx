@@ -1,5 +1,6 @@
 import './MyWork.css'
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const MyWork = props => {
   const profile = props.profile
@@ -27,7 +28,9 @@ const MyWork = props => {
                   </thead>
                   <tbody>
                     <tr>
-                      <td>{ticket.title}</td>
+                      <Link to="/ticketDetails" state={ticket}>
+                        <td>{ticket.title}</td>
+                      </Link>
                       <td>{ticket.description}</td>
                       <td>{ticket.status}</td>
                     </tr>
@@ -51,8 +54,9 @@ const MyWork = props => {
                   </thead>
                   <tbody>
                     <tr>
-                      <td>{ticket.title}</td>
-                      <td>{ticket.description}</td>
+                      <Link to="/ticketDetails" state={ticket}>
+                        <td>{ticket.title}</td>
+                      </Link>                      <td>{ticket.description}</td>
                       <td>{ticket.status}</td>
                     </tr>
                   </tbody>
