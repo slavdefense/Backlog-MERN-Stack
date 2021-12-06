@@ -39,3 +39,29 @@
     .sp{
       margin-left: 16px;
     }
+
+
+  .days-of-the-week{
+    width:1000px;
+    height:200px;
+  
+    display:flex;
+    justify-content: space-between;
+  }
+  .days{
+    height:300px;
+    width:100px;
+    background-color: yellowgreen;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    font-size: 15px;
+    font-weight: 900;
+
+  }
+  .days-inner{
+    background-color:purple;
+    width:100%;
+    text-align: center;
+  }
+
