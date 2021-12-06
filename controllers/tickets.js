@@ -36,12 +36,12 @@ async function deleteTickets(req, res) {
   // find the profile that submitted the ticket
   const submittedByProf = await Profile.findById(ticketToDelete.submittedBy)
   // delete the ticket number from the profile of the submitter
-  submittedByProf.ticketsSubmitted.splice(submittedByProf.ticketsSubmitted.indexOf(req.params.id),1)
+  submittedByProf.ticketsSubmitted.splice(submittedByProf.ticketsSubmitted.indexOf(req.params.id), 1)
   await submittedByProf.save()
   // find the profile that is assigned to the ticket
   const assignedToProf = await Profile.findById(ticketToDelete.assignedTo)
   // delete the ticket number from the profile of the submitter
-  assignedToProf.ticketsAssigned.splice(assignedToProf.ticketsAssigned.indexOf(req.params.id),1)
+  assignedToProf.ticketsAssigned.splice(assignedToProf.ticketsAssigned.indexOf(req.params.id), 1)
   await assignedToProf.save()
   // delete the ticket
   const deletedTicket = await Ticket.findByIdAndDelete(req.params.id)
@@ -74,25 +74,12 @@ function addComment(req, res) {
       ticket.comments.push(req.body)
       ticket.save()
         .then(savedTicket => {
-          savedTicket.populate("author")
-            .then(returnedTicket => {
-              returnedTicket.populate({
-                path: "comments",
-                populate: {
-                  path: "author"
-                }
-              })
-                .then(ticketwithAuthor => {
-                  res.json(ticketwithAuthor)
-
-                })
-            })
-
+          res.json(savedTicket)
         })
-
-
     })
 }
+
+
 
 
 
