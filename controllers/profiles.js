@@ -22,6 +22,7 @@ function show(req, res) {
 function index(req, res) {
   Profile.find({})
     .populate('ticketsSubmitted')
+    .populate('ticketsAssigned')
       .then(profiles => {
         res.json(profiles)
       })

@@ -15,7 +15,7 @@ import EditTicket from '../EditTicket/EditTicket'
 import MyWork from '../MyWork/MyWork'
 import SearchTicket from '../SeachTicket/SearchTicket'
 import { getProfile, getAllProfiles } from '../../services/profileService'
-
+import UserView from '../UserView/UserView'
 
 const App = () => {
 	const [user, setUser] = useState(authService.getUser())
@@ -85,7 +85,6 @@ const App = () => {
 	}
 
 	const handleAddComment = commentFormData => {
-		console.log("Sagun is my hero")
 		addComment(commentFormData)
 		.then(updatedTicketInfo => {
 			const newTicketArray = tickets.map(ticket => 
@@ -110,6 +109,7 @@ const App = () => {
 				<Route path='/ticketDetails' element={<TicketView user={user} handleDeleteTicket={handleDeleteTicket} handleAddComment= {handleAddComment} />} />
 				<Route path="/editTicket" element={<EditTicket handleUpdateTicket={handleUpdateTicket} allProfiles={allProfiles} user={user} profile={profile}/>} />
 				<Route path="/Search" element={<SearchTicket allTickets={allTickets}/>}/>
+				<Route path="/viewUser" element={<UserView allProfiles={allProfiles}/>}/>
 				{/* <Route path="/map" element = {<Map/>}/> */}
 			</Routes>
 		</>
