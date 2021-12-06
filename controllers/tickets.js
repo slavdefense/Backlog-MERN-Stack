@@ -30,11 +30,22 @@ function create(req, res) {
     })
 }
 
-function deleteTickets(req, res) {
-  console.log(req.body)
-  Ticket.findByIdAndDelete(req.params.id)
-    .then((ticket) => res.json(ticket))
-    .catch((err) => res.json(err))
+async function deleteTickets(req, res) {
+  // find the ticket to delete
+  const ticketToDelete = await Ticket.findById(req.params.id)
+  // find the profile that submitted the ticket
+  const submittedByProf = await Profile.findById(ticketToDelete.submittedBy)
+  // delete the ticket number from the profile of the submitter
+  submittedByProf.ticketsSubmitted.splice(submittedByProf.ticketsSubmitted.indexOf(req.params.id),1)
+  await submittedByProf.save()
+  // find the profile that is assigned to the ticket
+  const assignedToProf = await Profile.findById(ticketToDelete.assignedTo)
+  // delete the ticket number from the profile of the submitter
+  assignedToProf.ticketsAssigned.splice(assignedToProf.ticketsAssigned.indexOf(req.params.id),1)
+  await assignedToProf.save()
+  // delete the ticket
+  const deletedTicket = await Ticket.findByIdAndDelete(req.params.id)
+  res.json(deletedTicket)
 }
 
 async function update(req, res) {

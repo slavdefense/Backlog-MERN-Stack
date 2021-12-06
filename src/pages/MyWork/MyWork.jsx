@@ -13,10 +13,10 @@ const MyWork = props => {
       <>
         <div className="myWork">
           <h1>Hello, {profile.name}</h1>
+          <h3>Your tickets</h3>
           {profile && profile.ticketsAssigned.map((ticket) => {
             return (
               <>
-                <h3>Your tickets</h3>
                 <table className="table">
                   <thead>
                     <tr>
