@@ -7,11 +7,14 @@ import './TicketView.css'
 
 const TicketView = (props) => {
   const location = useLocation()
-
+  let formattedUrl = location.state.image.split('')
+  formattedUrl.splice(48,0,'w_500,h_275,c_scale/')
+  let finalUrl = formattedUrl.join('')
   const handleClick = (evt) => {
     evt.preventDefault()
     props.handleDeleteTicket(location.state._id)
   }
+  
   return (
     <>
       <div className="ticket-view">
@@ -30,6 +33,16 @@ const TicketView = (props) => {
                 <p>Related Link: {location.state.relatedLink}</p>
                 : <p></p>
             }
+            {
+              (finalUrl ?
+                <>
+                  <p>Images:</p>
+                  <img src={finalUrl} alt="img"></img>
+                </>
+                :
+                <br />
+              )
+            }
           </div>
         </div>
         <Link className="btn btn-warning" state={location.state} to="/editTicket">Edit</Link>
@@ -41,27 +54,20 @@ const TicketView = (props) => {
           <>
             <h2>Comments: </h2>
             {location.state.comments.map(comment =>
-
               <div key={comment._id}>
                 <p>{comment.content} - {comment.author.name}</p>
               </div>
-
             )}
           </>
           :
           <h4>no comments...</h4>
         }
-
         <br />
         <div className="comment-form">
           <CommentForm handleAddComment={props.handleAddComment} ticketId={location.state._id} />
         </div>
-        <ApiCall wantedData={location.state.officeLocation}/>
-        
+        <ApiCall wantedData={location.state.officeLocation} />
       </div >
-
-
-
     </>
   );
 }

@@ -9,13 +9,12 @@ import Users from '../Users/Users'
 import * as authService from '../../services/authService'
 import "./App.css"
 import AddTicket from '../AddTicket/AddTicket'
-import { createTicket,getTickets, updateTicket,deleteTicket } from '../../services/ticketService'
+import { createTicket,getTickets, updateTicket,deleteTicket, addComment } from '../../services/ticketService'
 import TicketView from '../TicketView/TicketView'
 import EditTicket from '../EditTicket/EditTicket'
 import MyWork from '../MyWork/MyWork'
 import SearchTicket from '../SeachTicket/SearchTicket'
 import { getProfile, getAllProfiles } from '../../services/profileService'
-import { addComment } from '@babel/types'
 
 
 const App = () => {
@@ -86,6 +85,7 @@ const App = () => {
 	}
 
 	const handleAddComment = commentFormData => {
+		console.log("Sagun is my hero")
 		addComment(commentFormData)
 		.then(updatedTicketInfo => {
 			const newTicketArray = tickets.map(ticket => 
