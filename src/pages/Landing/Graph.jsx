@@ -56,6 +56,24 @@ if(graphAllTickets){
     if(new Date(graphAllTickets[i].createdAt.slice(0,10)).getDay()===0){
       days[0].value++
     }
+    if(new Date(graphAllTickets[i].createdAt.slice(0,10)).getDay()===1){
+      days[1].value++
+    }
+    if(new Date(graphAllTickets[i].createdAt.slice(0,10)).getDay()===2){
+      days[2].value++
+    }
+    if(new Date(graphAllTickets[i].createdAt.slice(0,10)).getDay()===3){
+      days[3].value++
+    }
+    if(new Date(graphAllTickets[i].createdAt.slice(0,10)).getDay()===4){
+      days[4].value++
+    }
+    if(new Date(graphAllTickets[i].createdAt.slice(0,10)).getDay()===5){
+      days[5].value++
+    }
+    if(new Date(graphAllTickets[i].createdAt.slice(0,10)).getDay()===6){
+      days[6].value++
+    }
    
   }
   for(let item of days){
@@ -104,8 +122,8 @@ if(graphAllTickets){
 </div>
 
 
-
 <div className="days-of-the-week">
+
   <div className="days">
   <label className="sp" htmlFor="low">Sunday </label>
     <div className="days-inner"style={{'height':`${days[0].value}%`}} ></div>
