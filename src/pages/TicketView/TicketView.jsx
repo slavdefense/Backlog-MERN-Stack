@@ -19,6 +19,9 @@ const TicketView = (props) => {
     <>
       <div className="ticket-view">
         <h1>Ticket Details</h1>
+          <Link to="/tickets" className="btn btn-info">
+            Back
+          </Link>
         <div class="card">
           <div class="card-body">
             <h5 class="card-title">{location.state.title}</h5>
@@ -34,13 +37,14 @@ const TicketView = (props) => {
                 : <p></p>
             }
             {
-              (finalUrl ?
+              (finalUrl !== 'w_500,h_275,c_scale/' ?
                 <>
                   <p>Images:</p>
-                  <img src={finalUrl} alt="img"></img>
+                  <img src={finalUrl} alt="file of issue"></img>
                 </>
                 :
-                <br />
+                <>
+                </>
               )
             }
           </div>
@@ -61,8 +65,8 @@ const TicketView = (props) => {
                   </blockquote>
                   <h5>
                     <figcaption className="blockquote-footer">
-                  <cite className="author" title="Source Title">{comment.author.name}</cite>
-                  </figcaption>
+                      <cite className="author" title="Source Title">{comment.author.name}</cite>
+                    </figcaption>
                   </h5>
                 </figure>
               </div>
