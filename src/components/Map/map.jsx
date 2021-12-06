@@ -1,10 +1,14 @@
 import * as React from 'react';
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import ReactMapGL from 'react-map-gl';
 import './map.css'
 
 
 const MyMap = ({latitudeLongitude}) => {
+
+
+
+
   const [viewport, setViewport] = useState({
     width: 400,
     height: 400,
@@ -12,6 +16,18 @@ const MyMap = ({latitudeLongitude}) => {
     longitude: latitudeLongitude[0],
     zoom: 8
   });
+
+useEffect(()=>{
+  setViewport({
+    width: 400,
+    height: 400,
+    latitude: latitudeLongitude[1],
+    longitude: latitudeLongitude[0],
+    zoom: 8
+  })
+},[latitudeLongitude])
+  
+
 
 
 
