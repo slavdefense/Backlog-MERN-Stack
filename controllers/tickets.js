@@ -74,7 +74,15 @@ function addComment(req, res) {
       ticket.comments.push(req.body)
       ticket.save()
         .then(savedTicket => {
-          res.json(savedTicket)
+          savedTicket.populate({
+            path: 'comments',
+            populate: {
+              path: 'author'
+            }
+          })
+            .then(savedTicket => {
+              res.json(savedTicket)
+            })
         })
     })
 }
