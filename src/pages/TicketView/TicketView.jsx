@@ -8,13 +8,13 @@ import './TicketView.css'
 const TicketView = (props) => {
   const location = useLocation()
   let formattedUrl = location.state.image.split('')
-  formattedUrl.splice(48,0,'w_500,h_275,c_scale/')
+  formattedUrl.splice(48, 0, 'w_500,h_275,c_scale/')
   let finalUrl = formattedUrl.join('')
   const handleClick = (evt) => {
     evt.preventDefault()
     props.handleDeleteTicket(location.state._id)
   }
-  
+
   return (
     <>
       <div className="ticket-view">
@@ -54,8 +54,17 @@ const TicketView = (props) => {
           <>
             <h2>Comments: </h2>
             {location.state.comments.map(comment =>
-              <div key={comment._id}>
-                <p>{comment.content} - {comment.author.name}</p>
+              <div className="border border-dark" key={comment._id}>
+                <figure>
+                  <blockquote className="content" class="blockquote">
+                    <p>{comment.content}</p>
+                  </blockquote>
+                  <h5>
+                    <figcaption className="blockquote-footer">
+                  <cite className="author" title="Source Title">{comment.author.name}</cite>
+                  </figcaption>
+                  </h5>
+                </figure>
               </div>
             )}
           </>
