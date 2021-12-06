@@ -1,7 +1,9 @@
 import userEvent from "@testing-library/user-event";
 import { useLocation, Link } from "react-router-dom";
 import CommentForm from "../../components/CommentForm/CommentForm";
+import ApiCall from "../ApiCall/Map-api-call";
 import './TicketView.css'
+
 
 const TicketView = (props) => {
   const location = useLocation()
@@ -54,6 +56,8 @@ const TicketView = (props) => {
         <div className="comment-form">
           <CommentForm handleAddComment={props.handleAddComment} ticketId={location.state._id} />
         </div>
+        <ApiCall wantedData={location.state.officeLocation}/>
+        
       </div >
 
 

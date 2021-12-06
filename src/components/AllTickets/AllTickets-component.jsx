@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import TicketView from '../../pages/TicketView/TicketView';
 
 const AllTicketsComp = ({ tickets }) => {
   if (tickets === undefined) {
@@ -20,6 +21,7 @@ const AllTicketsComp = ({ tickets }) => {
                 <th>Status</th>
                 <th>Priority</th>
                 <th>Submitted By</th>
+                <th>Location</th>
               </tr>
               <tr>
                 <Link to="/ticketDetails" state={ticket}>
@@ -30,6 +32,7 @@ const AllTicketsComp = ({ tickets }) => {
                 <td>{ticket.status}</td>
                 <td>{ticket.priority}</td>
                 <td>{ticket.submittedBy.name}</td>
+                <td>{ticket.officeLocation}</td>
               </tr>
             </table>
         )

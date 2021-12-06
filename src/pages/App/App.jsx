@@ -110,6 +110,7 @@ const App = () => {
 				<Route path='/ticketDetails' element={<TicketView user={user} handleDeleteTicket={handleDeleteTicket} handleAddComment= {handleAddComment} />} />
 				<Route path="/editTicket" element={<EditTicket handleUpdateTicket={handleUpdateTicket} allProfiles={allProfiles} user={user} profile={profile}/>} />
 				<Route path="/Search" element={<SearchTicket allTickets={allTickets}/>}/>
+				{/* <Route path="/map" element = {<Map/>}/> */}
 			</Routes>
 		</>
 	);
