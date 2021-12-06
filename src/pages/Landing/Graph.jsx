@@ -34,9 +34,9 @@ const Graph = ({graphAllTickets}) => {
   let totalHighPercentage = Math.floor((totalHigh/maxValue)*100)
   
   // console.log(total)
-console.log(totalLowPercentage)
-console.log(totalMediumPercentage)
-console.log(totalHighPercentage)
+// console.log(totalLowPercentage)
+// console.log(totalMediumPercentage)
+// console.log(totalHighPercentage)
 
 
 
@@ -53,40 +53,46 @@ const days = [
 // console.log(graphAllTickets[0].createdAt)
 if(graphAllTickets){
   for(let i=0;i<graphAllTickets.length;i++){
-    if(new Date(graphAllTickets[i].createdAt.slice(0,10)).getDay()===0){
+    if(new Date(graphAllTickets[i].createdAt).getDay()===0){
       days[0].value++
     }
-    if(new Date(graphAllTickets[i].createdAt.slice(0,10)).getDay()===1){
+    if(new Date(graphAllTickets[i].createdAt).getDay()===1){
       days[1].value++
     }
-    if(new Date(graphAllTickets[i].createdAt.slice(0,10)).getDay()===2){
+    if(new Date(graphAllTickets[i].createdAt).getDay()===2){
       days[2].value++
     }
-    if(new Date(graphAllTickets[i].createdAt.slice(0,10)).getDay()===3){
+    if(new Date(graphAllTickets[i].createdAt).getDay()===3){
       days[3].value++
     }
-    if(new Date(graphAllTickets[i].createdAt.slice(0,10)).getDay()===4){
+    if(new Date(graphAllTickets[i].createdAt).getDay()===4){
       days[4].value++
     }
-    if(new Date(graphAllTickets[i].createdAt.slice(0,10)).getDay()===5){
+    if(new Date(graphAllTickets[i].createdAt).getDay()===5){
       days[5].value++
     }
-    if(new Date(graphAllTickets[i].createdAt.slice(0,10)).getDay()===6){
+    if(new Date(graphAllTickets[i].createdAt).getDay()===6){
       days[6].value++
     }
    
-  }
-  for(let item of days){
-    console.log(item.value)
   }
 
 
 
 }
 
+let summer = 0
+for(let item of days){
+  summer=summer+item.value
+}
 
 
 
+
+
+console.log(summer)
+console.log(graphAllTickets[0].createdAt)
+console.log(new Date(graphAllTickets[0].createdAt).getDay())
 
   return ( 
     <section>
@@ -113,7 +119,6 @@ if(graphAllTickets){
 </div>
 
 <div className="circle">
-
 
 </div>
 
