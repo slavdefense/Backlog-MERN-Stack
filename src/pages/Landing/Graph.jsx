@@ -81,18 +81,15 @@ if(graphAllTickets){
 
 }
 
-let summer = 0
+let sumDayVal = 0
 for(let item of days){
-  summer=summer+item.value
+  sumDayVal=sumDayVal+item.value
 }
 
+console.log(sumDayVal)
 
 
 
-
-console.log(summer)
-console.log(graphAllTickets[0].createdAt)
-console.log(new Date(graphAllTickets[0].createdAt).getDay())
 
   return ( 
     <section>
@@ -128,14 +125,15 @@ console.log(new Date(graphAllTickets[0].createdAt).getDay())
 
 
 <div className="days-of-the-week">
+  
 
   <div className="days">
   <label className="sp" htmlFor="low">Sunday </label>
-    <div className="days-inner"style={{'height':`${days[0].value}%`}} ></div>
+    <div className="days-inner" style={{'height':`${days[0].value}%`}} ></div>
   </div>
   <div className="days">
   <label className="sp" htmlFor="low">Monday </label>
-    <div className="days-inner"style={{'height':`${days[1].value}%`}}></div>
+    <div className="days-inner"style={{'height': `calc(100% ${days[1].value}/${sumDayVal}`}}></div>
   </div>
   <div className="days">
   <label className="sp" htmlFor="low">Tuesday </label>
