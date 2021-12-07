@@ -118,7 +118,13 @@ const TicketView = (props) => {
         <div className="comment-form">
           <CommentForm handleAddComment={props.handleAddComment} ticketId={location.state._id} />
         </div>
+        {location.state.officeLocation.length ?
         <ApiCall wantedData={location.state.officeLocation} />
+        :
+        <>
+        <div>No location has been submitted...</div>
+        </>
+        }   
       </div >
     </>
   );
