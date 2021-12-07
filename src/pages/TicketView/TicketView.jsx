@@ -7,6 +7,10 @@ import './TicketView.css'
 
 const TicketView = (props) => {
   const location = useLocation()
+  console.log(location.state.submittedBy._id)
+  console.log(location.state.assignedTo._id)
+  console.log(props.user.profile)
+  console.log(props.user)
 
   let formattedUrl = location.state.image.split('')
   formattedUrl.splice(48, 0, 'w_500,h_275,c_scale/')
