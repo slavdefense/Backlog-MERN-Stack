@@ -7,12 +7,22 @@ import './TicketView.css'
 
 const TicketView = (props) => {
   const location = useLocation()
+
   let formattedUrl = location.state.image.split('')
   formattedUrl.splice(48, 0, 'w_500,h_275,c_scale/')
   let finalUrl = formattedUrl.join('')
+
   const handleClick = (evt) => {
     evt.preventDefault()
     props.handleDeleteTicket(location.state._id)
+  }
+
+  function formattedDate(date) {
+    if (date === null) {
+      return
+    } else {
+      return date.split('').slice(0, 10)
+    }
   }
 
   return (
@@ -27,14 +37,30 @@ const TicketView = (props) => {
             <h5 class="card-title">{location.state.title}</h5>
             <p class="card-subtitle mb-2 text-muted" >{location.state.status}</p>
             <h5>Description</h5>
-            <h6 class="card-text">{location.state.description}</h6><br />
-            <p>Priority Level: {location.state.priority}</p><br />
-            <p>Submitted By: {location.state.submittedBy.name}</p><br />
-            <p>Assigned To: {location.state.assignedTo.name}</p><br />
+            <h6 class="card-text">{location.state.description}</h6>
+            <br />
+            <p>Priority Level: {location.state.priority}</p>
+            <br />
+            <p>Submitted By: {location.state.submittedBy.name}</p>
+            <br />
+            <p>Assigned To: {location.state.assignedTo.name}</p>
+            <br />
             {
               (location.state.relatedLink) ?
                 <p>Related Link: {location.state.relatedLink}</p>
-                : <p></p>
+                : <></>
+            }
+            <p>Submitted On:</p>
+            <p>{formattedDate(location.state.startDate)}</p>
+            {
+              (location.state.completedDate !== null ?
+                <>
+                  <p>Completed On:</p>
+                  <p>{formattedDate(location.state.completedDate)}</p>
+                </>
+                : 
+                <></>
+              )
             }
             {
               (finalUrl !== 'w_500,h_275,c_scale/' ?

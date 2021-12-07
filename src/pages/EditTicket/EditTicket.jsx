@@ -8,6 +8,8 @@ const EditTicket = (props) => {
   const navigate = useNavigate()
   const [image, setImage] = useState('');
 
+  const today = new Date().toLocaleString() + ''
+
   const [formData, setFormData] = useState({
     title: location.state.title,
     description: location.state.description,
@@ -17,7 +19,8 @@ const EditTicket = (props) => {
     submittedBy: location.state.submittedBy,
     assignedTo: location.state.assignedTo,
     id: location.state._id,
-    image: location.state.image
+    image: location.state.image,
+    completedDate: ''
   })
 
   const handleChange = e => {
@@ -25,6 +28,17 @@ const EditTicket = (props) => {
       ...formData,
       [e.target.name]: e.target.value
     })
+  }
+
+  const handleCompletedDateChange = e => {
+    if (location.state.status === 'Not started ') {
+      return <p>Ticket status not set as completed</p>
+    } else {
+      setFormData({
+        ...formData,
+        [e.target.name]: e.target.value
+      })
+    }
   }
 
   const handleSubmit = async e => {
@@ -94,6 +108,34 @@ const EditTicket = (props) => {
         />
         <br /><br />
         <label>
+          <h4>Status</h4>
+        </label>
+        <br />
+        <select
+          name="status"
+          onChange={handleChange}
+        >
+          <option
+            name="status"
+            value='Not started'
+          >
+            Not started
+          </option>
+          <option 
+            name="status"
+            value='In progress'
+          >
+            In progress
+          </option>
+          <option
+            name="status" 
+            value='Completed'
+          >
+            Completed
+          </option>
+        </select>
+        <br /><br />
+        <label>
           <h4>Link</h4>
         </label>
         <br />
@@ -133,6 +175,13 @@ const EditTicket = (props) => {
             Low
           </option>
         </select>
+        <br /><br />
+        <label><h4>Completed Date:</h4></label>
+        <input 
+          type="date" 
+          name="completedDate"
+          onChange={handleChange} 
+        />
         <br /><br />
         <label>
           <h4>Add an image</h4>
