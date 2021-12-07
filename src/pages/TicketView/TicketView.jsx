@@ -33,9 +33,9 @@ const TicketView = (props) => {
     <>
       <div className="ticket-view">
         <h1>Ticket Details</h1>
-          <Link to="/tickets" className="btn btn-info">
-            Back
-          </Link>
+        <Link to="/tickets" className="btn btn-info">
+          Back
+        </Link>
         <div class="card">
           <div class="card-body">
             <h5 class="card-title">{location.state.title}</h5>
@@ -79,10 +79,19 @@ const TicketView = (props) => {
             }
           </div>
         </div>
-        <Link className="btn btn-warning" state={location.state} to="/editTicket">Edit</Link>
-        <div>
-          <button className="btn btn-danger" onClick={handleClick}> Delete</button>
-        </div>
+        {(props.user.profile === location.state.submittedBy._id ||
+        props.user.profile === location.state.assignedTo._id) ?
+        
+          <>
+            <Link className="btn btn-warning" state={location.state} to="/editTicket">Edit</Link>
+            <div>
+              <button className="btn btn-danger" onClick={handleClick}> Delete</button>
+            </div>
+          </>
+          :
+          <></>
+        }
+      
         <br />
         {location.state.comments.length ?
           <>
