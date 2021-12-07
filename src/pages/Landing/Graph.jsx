@@ -85,15 +85,24 @@ let sumDayVal = 0
 for(let item of days){
   sumDayVal=sumDayVal+item.value
 }
+let week =[{value:0},{value:0},{value:0},{value:0},{value:0},{value:0},{value:0}]
 
-console.log(sumDayVal)
+for (let i=0;i<week.length;i++){
+  week[i].value += (days[i].value/sumDayVal)*100 
+}
 
 
+for(let item of week){
+  console.log(item.value)
+}
 
 
   return ( 
     <section>
       <div className="graphs">
+
+
+      
 
 <div className="priority-bar">
   <label className="sp" htmlFor="low">Low {totalLow}</label>
@@ -124,41 +133,46 @@ console.log(sumDayVal)
 </div>
 
 
-<div className="days-of-the-week">
+
+  <div className="days-of-the-week">
   
 
   <div className="days">
-  <label className="sp" htmlFor="low">Sunday </label>
-    <div className="days-inner" style={{'height':`${days[0].value}%`}} ></div>
+  <label className="sp" htmlFor="low">Sunday: {days[0].value}</label>
+    <div className="days-inner" style={{'height':`${week[0].value}%`}} ></div>
   </div>
   <div className="days">
-  <label className="sp" htmlFor="low">Monday </label>
-    <div className="days-inner"style={{'height': `calc(100% ${days[1].value}/${sumDayVal}`}}></div>
+  <label className="sp" htmlFor="low">Monday: {days[1].value} </label>
+    <div className="days-inner"style={{'height': `${week[1].value}%`}}></div>
   </div>
   <div className="days">
-  <label className="sp" htmlFor="low">Tuesday </label>
-    <div className="days-inner"style={{'height':`${days[2].value}%`}}></div>
+  <label className="sp" htmlFor="low">Tuesday: {days[2].value} </label>
+    <div className="days-inner"style={{'height':`${week[2].value}%`}}></div>
   </div>
   <div className="days">
-  <label className="sp" htmlFor="low">Wednesday </label>
-    <div className="days-inner"style={{'height':`${days[3].value}%`}}></div>
+  <label className="sp" htmlFor="low">Wednesd:{days[3].value} </label>
+    <div className="days-inner"style={{'height':`${week[3].value}%`}}></div>
   </div>
   <div className="days">
-  <label className="sp" htmlFor="low">Thursday </label>
-    <div className="days-inner"style={{'height':`${days[4].value}%`}}></div>
+  <label className="sp" htmlFor="low">Thursday: {days[4].value} </label>
+    <div className="days-inner"style={{'height':`${week[4].value}%`}}></div>
   </div>
   <div className="days">
-  <label className="sp" htmlFor="low">Friday </label>
-    <div className="days-inner"style={{'height':`${days[5].value}%`}}></div>
+  <label className="sp" htmlFor="low">Friday: {days[5].value} </label>
+    <div className="days-inner"style={{'height':`${week[5].value}%`}}></div>
   </div>
   <div className="days">
-  <label className="sp" htmlFor="low">Saturday </label>
-    <div className="days-inner"style={{'height':`${days[6].value}%`}}></div>
+  <label className="sp" htmlFor="low">Saturday: {days[6].value} </label>
+    <div className="days-inner"style={{'height':`${week[6].value}%`}}></div>
   </div>
   
   
 
 </div>
+
+
+
+
 
 
     </section>
