@@ -13,7 +13,7 @@ import { createTicket,getTickets, updateTicket,deleteTicket, addComment } from '
 import TicketView from '../TicketView/TicketView'
 import EditTicket from '../EditTicket/EditTicket'
 import MyWork from '../MyWork/MyWork'
-import SearchTicket from '../SeachTicket/SearchTicket'
+import SearchTicket from '../SearchTicket/SearchTicket'
 import { getProfile, getAllProfiles } from '../../services/profileService'
 import UserView from '../UserView/UserView'
 
