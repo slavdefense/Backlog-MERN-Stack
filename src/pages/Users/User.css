@@ -1,3 +1,36 @@
 .user-list {
-  margin-left: 300px;
+  margin-left: 200px;
+  
+}
+#cont-d{
+  border:2px solid black;
+  width: 200px;
+  height: 100px;
+  overflow: hidden;
+  overflow-y: scroll;
+ text-align: center;
+
+}
+
+#cont-d p{height:50px; 
+          width:18%;
+         
+          
+}
+#cont-d p{overflow:hidden; overflow-y:scroll;}
+
+.assign{
+  display: flex;
+  justify-content: space-around;
+
+}
+.assign-click{
+
+  font-size: 15px;
+  position: relative;
+  color: green;
+}
+
+table, th, td {
+  border:1px solid black;
 }
