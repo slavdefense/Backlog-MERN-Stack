@@ -9,19 +9,18 @@ import { Link } from 'react-router-dom'
 
 const Users = (props) => {
 
-  const [profiles, setProfiles] = useState([])
+  const [profiles, setProfiles] = useState(['admin'])
   const [newProfiles,setNewProfiles] = useState()
-
   const [assignTask,setAssignTask]= useState()
-  // console.log(profiles)
   const [priorityTeam,setPriorityTeam]=useState(
     {
       priority:''
     }
   )
+  const [highTeam,setHightTeam]=useState(['admin'])
+  const [mediumTeam,setmediumTeam]=useState(['admin'])
+  const [lowTeam,setLowTeam]=useState(['admin'])
  
-
-
   useEffect(()=> {
     profileService.getAllProfiles()
     .then(profiles => setProfiles(profiles))
@@ -30,60 +29,56 @@ const Users = (props) => {
   const submitHandler=(evt)=>{
    evt.preventDefault()
    setProfiles(newProfiles)
-  //  console.log(profiles)
   
-
   }
 
   const handlePriorityChange = (evt)=>{
-    // console.log(evt.target.value)
     setPriorityTeam({...priorityTeam,[evt.target.name]:evt.target.value})
-
-    // console.log(priorityTeam)
   }
   const submitPriorityHandler=(evt)=>{
     evt.preventDefault()
   }
 
-
   const handleChange=(evt)=>{
+   
 
-   const namesAssigned = profiles.filter((item)=>{
-     return item.name=== evt.target.value
+      const namesAssigned = profiles.filter((item)=>{
+          return item.name=== evt.target.value
+           })
+   //priorityTeam.priority==="medium"
+   if(priorityTeam.priority==='high'){
+     console.log(namesAssigned)
+     let high = [...highTeam,namesAssigned[0].name]
+     console.log(high)
+     
+     setHightTeam(high)
+     console.log(highTeam)
+    }
+    else if(priorityTeam.priority==='medium'){
+      let medium = [...mediumTeam,namesAssigned[0].name]
+      setmediumTeam(medium)
+    }
+    else{
+      let low = [...lowTeam,namesAssigned[0].name]
+      setLowTeam(low)
+    }
 
-   })
+
    setAssignTask(namesAssigned)
- 
-   
-  
-   //logs the person that was assigned
-   
-
-    // console.log(evt.target.value)
-    const newestProfiles = profiles.filter((item)=>{
-      // console.log(item.name)
-      
+    const newestProfiles = profiles.filter((item)=>{ 
       return item.name!==evt.target.value
       
     })
-    setNewProfiles(newestProfiles)
-    // console.log(newestProfiles)
-    // console.log(assignTask)
+    setNewProfiles(newestProfiles)  
   }
-// console.log(priorityTeam)
-  //if priorityTeam.priority = 'high' then person assigned goes to high
-  //if priorityTeam.priority = 'medium' then person assigned goes to medium
-  //if priorityTeam.priority = 'low' then person assigned goes to low
+
+
   
-console.log(assignTask)
-
-
   return (
     <div className="user-list container">
       <h1>Greetings {props.user.name}  {props.user.email} </h1>
-      <h4>You are  {!props.user.isAdmin? 'Not an admin':'Is an Admin'} </h4>
+      <h4>  {!props.user.isAdmin? 'Not an admin':'Is an Admin'} </h4>
 
-      <h6>Assign users to a team</h6>
   
       {profiles.length ? 
       <div id="cont-d">
@@ -91,20 +86,12 @@ console.log(assignTask)
         {profiles.map((profile)=> {
           return(
             <div className="assign">
-              <Link to="/viewUser" state={profile}>
-            
-            
+              <Link to="/viewUser" state={profile}> 
             <li className="vertical-scroll" key={profile._id}>{profile.name}</li> 
- 
-            
-
-          </Link>
-        
-          
+          </Link>   
             </div>
             
-          )
-           
+          )         
         }         
         )}
         </div>
@@ -113,9 +100,8 @@ console.log(assignTask)
         <p>An error occured</p>
       }
 
-
       <div>
-        <h4>Select a team to Assign</h4>
+        <h4>Team to assign</h4>
 
         <form action="" onSubmit={submitPriorityHandler}>
         <select 
@@ -128,8 +114,7 @@ console.log(assignTask)
             value='none'
           >
             Select an option
-          </option>
-         
+          </option>    
           <option
             name="high"
             value='high'
@@ -155,15 +140,9 @@ console.log(assignTask)
 
         </form>
         
-
-
-      </div>
-     
-        
-      
-
+      </div>  
       <div >
-              <h1>List of users assigned profile</h1>
+              <h4>Assign User</h4>
               <form action="" onSubmit={submitHandler}  >
                 <select name="" id="" onChange={handleChange}>
                   {
@@ -190,7 +169,7 @@ console.log(assignTask)
       
       <div>
 
-<h1>hello this is table page</h1>
+<h2>Teams</h2>
 <table className="table">
               
 
@@ -200,60 +179,50 @@ console.log(assignTask)
 
 
     {assignTask&&priorityTeam&&priorityTeam.priority==="low"?
-     
-    
       <th>{assignTask[0].name}</th>
-          
-        
-        
- 
 :''
 
+    }  
+    {lowTeam.map((item)=>{
+      return  <th>{item}</th>
+    })
+
     }
-   
-    
     
   </tr>
   <tr>
     <td>Medium priority</td>
     
 
-    {assignTask&&priorityTeam&&priorityTeam.priority==="medium"?
-     
-    
+    {assignTask&&priorityTeam&&priorityTeam.priority==="medium"? 
       <th>{assignTask[0].name}</th>
           
-        
-        
- 
 :''
+
+    }
+    {mediumTeam.map((item)=>{
+      return  <th>{item}</th>
+    })
 
     }
   </tr>
   <tr>
     <th>High Priority</th>
 
-
-
-
     {assignTask&&priorityTeam&&priorityTeam.priority==="high"?
-     
-    
       <th>{assignTask[0].name}</th>
           
-        
-        
- 
 :''
 
     }
   
-    
-    <th></th>
+    {highTeam.map((item)=>{
+      return  <th>{item}</th>
+    })
+
+    }
+   
   </tr>
-
-
-
 
             </table>
 
