@@ -11,7 +11,16 @@ const Users = (props) => {
 
   const [profiles, setProfiles] = useState([])
   const [newProfiles,setNewProfiles] = useState()
+
+  const [assignTask,setAssignTask]= useState()
   // console.log(profiles)
+  const [priorityTeam,setPriorityTeam]=useState(
+    {
+      priority:''
+    }
+  )
+ 
+
 
   useEffect(()=> {
     profileService.getAllProfiles()
@@ -22,25 +31,51 @@ const Users = (props) => {
    evt.preventDefault()
    setProfiles(newProfiles)
   //  console.log(profiles)
+  
 
   }
+
+  const handlePriorityChange = (evt)=>{
+    // console.log(evt.target.value)
+    setPriorityTeam({...priorityTeam,[evt.target.name]:evt.target.value})
+
+    // console.log(priorityTeam)
+  }
+  const submitPriorityHandler=(evt)=>{
+    evt.preventDefault()
+  }
+
+
   const handleChange=(evt)=>{
-   //get profile
-   //get the name 
-   //delete the name from the profile
-   //setProfiles()
+
+   const namesAssigned = profiles.filter((item)=>{
+     return item.name=== evt.target.value
+
+   })
+   setAssignTask(namesAssigned)
+ 
+   
   
-  console.log(evt.target.value)
+   //logs the person that was assigned
+   
+
+    // console.log(evt.target.value)
     const newestProfiles = profiles.filter((item)=>{
-      console.log(item.name)
+      // console.log(item.name)
       
       return item.name!==evt.target.value
       
     })
     setNewProfiles(newestProfiles)
-    console.log(newestProfiles)
-
+    // console.log(newestProfiles)
+    // console.log(assignTask)
   }
+// console.log(priorityTeam)
+  //if priorityTeam.priority = 'high' then person assigned goes to high
+  //if priorityTeam.priority = 'medium' then person assigned goes to medium
+  //if priorityTeam.priority = 'low' then person assigned goes to low
+  
+console.log(assignTask)
 
 
   return (
@@ -62,7 +97,7 @@ const Users = (props) => {
             <li className="vertical-scroll" key={profile._id}>{profile.name}</li> 
  
             
-            
+
           </Link>
         
           
@@ -81,9 +116,12 @@ const Users = (props) => {
 
       <div>
         <h4>Select a team to Assign</h4>
+
+        <form action="" onSubmit={submitPriorityHandler}>
         <select 
-          name="team"
-         
+          
+          onChange={handlePriorityChange}
+          name="priority"
         >
            <option
             
@@ -93,24 +131,30 @@ const Users = (props) => {
           </option>
          
           <option
-            name="frontend"
-            value='frontend'
+            name="high"
+            value='high'
           >
             High-Prority
           </option>
           <option 
-            name="backend"
-            value='Medium'
+            name="medium"
+            value='medium'
           >
           Medium-Priority
           </option>
           <option
-            name="fullstack" 
-            value='Low'
+            name="low" 
+            value='low'
           >
             Low-Priority
           </option>
         </select>
+
+      <button type="submit">Select</button>
+
+
+        </form>
+        
 
 
       </div>
@@ -140,7 +184,7 @@ const Users = (props) => {
                     })
                   }
               </select>
-              <button>Submit</button>
+              <button>Assign</button>
             </form>
       </div>
       
@@ -148,24 +192,69 @@ const Users = (props) => {
 
 <h1>hello this is table page</h1>
 <table className="table">
-              <tr>
-                <th>Title</th>
-                <th>Description</th>
-                <th>Related Links</th>
-                <th>Status</th>
-                <th>Priority</th>
-                <th>Submitted By</th>
-                <th>Location</th>
-              </tr>
-              <tr>
               
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
+
+  <tr>
+    <td>Low Priority</td>
+
+
+
+    {assignTask&&priorityTeam&&priorityTeam.priority==="low"?
+     
+    
+      <th>{assignTask[0].name}</th>
+          
+        
+        
+ 
+:''
+
+    }
+   
+    
+    
+  </tr>
+  <tr>
+    <td>Medium priority</td>
+    
+
+    {assignTask&&priorityTeam&&priorityTeam.priority==="medium"?
+     
+    
+      <th>{assignTask[0].name}</th>
+          
+        
+        
+ 
+:''
+
+    }
+  </tr>
+  <tr>
+    <th>High Priority</th>
+
+
+
+
+    {assignTask&&priorityTeam&&priorityTeam.priority==="high"?
+     
+    
+      <th>{assignTask[0].name}</th>
+          
+        
+        
+ 
+:''
+
+    }
+  
+    
+    <th></th>
+  </tr>
+
+
+
+
             </table>
 
 
