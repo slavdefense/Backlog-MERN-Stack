@@ -3,9 +3,14 @@ import * as profileService from '../../services/profileService'
 import './User.css'
 import { Link } from 'react-router-dom'
 
+//in the profile model there is a team which is embedded to team schema
+//the team has a 1) name: string and 2) members: Profile reference
+
+
 const Users = (props) => {
-  console.log(props.user)
+
   const [profiles, setProfiles] = useState([])
+  const [newProfiles,setNewProfiles] = useState()
   // console.log(profiles)
 
   useEffect(()=> {
@@ -13,12 +18,30 @@ const Users = (props) => {
     .then(profiles => setProfiles(profiles))
   }, [])
 
-  const handleClick =(evt)=>{
-    evt.preventDefault()
-    
-    // console.log(evt)
+  const submitHandler=(evt)=>{
+   evt.preventDefault()
+   setProfiles(newProfiles)
+  //  console.log(profiles)
 
   }
+  const handleChange=(evt)=>{
+   //get profile
+   //get the name 
+   //delete the name from the profile
+   //setProfiles()
+  
+  console.log(evt.target.value)
+    const newestProfiles = profiles.filter((item)=>{
+      console.log(item.name)
+      
+      return item.name!==evt.target.value
+      
+    })
+    setNewProfiles(newestProfiles)
+    console.log(newestProfiles)
+
+  }
+
 
   return (
     <div className="user-list container">
@@ -41,15 +64,7 @@ const Users = (props) => {
             
             
           </Link>
-          <form action=""  >
-         
-          <button onClick={handleClick} >
-          <li  className="assign-click" >Assign</li>
-
-
-          </button>
-
-          </form>
+        
           
             </div>
             
@@ -99,13 +114,62 @@ const Users = (props) => {
 
 
       </div>
+     
+        
+      
 
       <div >
-<h1>List of users assigned profile</h1>
+              <h1>List of users assigned profile</h1>
+              <form action="" onSubmit={submitHandler}  >
+                <select name="" id="" onChange={handleChange}>
+                  {
+                    profiles.map((item)=>{
+                        return(
+
+                        <option 
+                        key={item._id}
+                        value={item.name}
+                        name={item.name}
+                        
+                        
+                        >
+                       {item.name}
+                        </option>
+                  )
+                  
+                    })
+                  }
+              </select>
+              <button>Submit</button>
+            </form>
+      </div>
+      
+      <div>
+
+<h1>hello this is table page</h1>
+<table className="table">
+              <tr>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Related Links</th>
+                <th>Status</th>
+                <th>Priority</th>
+                <th>Submitted By</th>
+                <th>Location</th>
+              </tr>
+              <tr>
+              
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            </table>
 
 
       </div>
-      
     </div>
   );
 }
