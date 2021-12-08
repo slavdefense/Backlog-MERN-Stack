@@ -13,28 +13,32 @@ const AllTicketsComp = ({ tickets }) => {
     <div className="container">
       {tickets.map(ticket => {
         return(
-            <table className="table">
-              <tr>
-                <th>Title</th>
-                <th>Description</th>
-                <th>Related Links</th>
-                <th>Status</th>
-                <th>Priority</th>
-                <th>Submitted By</th>
-                <th>Location</th>
-              </tr>
-              <tr>
-                <Link to="/ticketDetails" state={ticket}>
-                  <td>{ticket.title}</td>
-                </Link>
-                <td>{ticket.description}</td>
-                <td>{ticket.relatedLink}</td>
-                <td>{ticket.status}</td>
-                <td>{ticket.priority}</td>
-                <td>{ticket.submittedBy.name}</td>
-                <td>{ticket.officeLocation}</td>
-              </tr>
-            </table>
+
+          <div class="card">
+  <div class="card-body">
+    <h5 class="card-title">{ticket.title} <span id="priority">Priority: {ticket.priority}</span></h5>
+    <h6 class="card-subtitle mb-2 text-muted">Priority: {ticket.priority}</h6>
+    <p class="card-text"> Description: {ticket.description}</p>
+    <Link to="/ticketdetails" class="card-link" state={ticket}>Details</Link>
+  </div>
+</div>
+            // <table className="table">
+            //   <tr>
+            //     <th>Title</th>
+            //     <th>Description</th>
+            //     <th>Status</th>
+            //     <th>Priority</th>
+            //     <th>Submitted By</th>
+            //   </tr>
+            //   <tr>
+              
+            //       <td>{ticket.title}</td>
+            //     <td>{ticket.description}</td>
+            //     <td>{ticket.status}</td>
+            //     <td>{ticket.priority}</td>
+            //     <td>{ticket.submittedBy.name}</td>
+            //   </tr>
+            // </table>
         )
       })
     }</div> 
