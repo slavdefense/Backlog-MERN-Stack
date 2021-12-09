@@ -12,7 +12,7 @@ body{
   background-color: #f3f5f9;
 }
 
-.navbar{
+.navbars{
   width:20vh;
   /* height:100%; */
   min-height: 100vh;
@@ -20,10 +20,63 @@ body{
   margin-right: 10px;
   background: rgb(2,0,36);
   background: cornflowerblue;
+  display: flex;
+ 
+  
+}
+
+.container-on-steroid{
+  display:flex;
+  flex-direction: column;
+  justify-content: space-around;
+  
 }
 
 .nav-components-li{
-  /* margin-top: 90px; */
+  display: flex;
+  justify-content: space-around;
+  font-weight: bolder;
+  color: white;
+  
+}
+
+li{
+  margin-bottom: 50px;
+  font-weight: 1300px;
+  
+}
+.nav-span{
+  font-weight: bolder;
+  font-size: xx-large;
+}
+
+.not-logged-nav{
+  display:flex;
+  justify-content: center;
+}
+
+.not-logged-ul{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 50px;
+  
+}
+.not-logged-span{
+  margin-left: 10px;
+ 
+  font-size: xx-large;
+  text-align: center;
+  font-weight: bolder;
+  text-decoration: none;
+}
+
+/* ul{
+  display: inline-block;
+
+} */
+/* .nav-components-li{
+  
   font-size: x-large;
   font-weight: bolder; 
   margin-bottom: 10px;
@@ -36,9 +89,7 @@ body{
   margin-bottom: 20px;
 }
 
-.nav-components{
 
-}
 
 li {
   color:black;
@@ -54,4 +105,4 @@ span{
 #auth-style{
   color: black;
 }
-
+ */
