@@ -18,9 +18,8 @@ const CommentForm = (props) => {
   const handleSubmit = async e => {
     e.preventDefault()
     try {
-      console.log("you suck")
       props.handleAddComment(formData)
-      setFormData({content: '', ticketId: props.ticketId})
+      setFormData({ content: '', ticketId: props.ticketId })
     } catch (e) {
       console.log(e)
     }
@@ -32,7 +31,6 @@ const CommentForm = (props) => {
 
   const { content } = formData
 
-
   return (
     <>
       <h4>Comment : </h4>
@@ -42,10 +40,8 @@ const CommentForm = (props) => {
           value={content}
           onChange={handleChange}
         />
-       <br/>
-
-
-        <button  className="btn btn-outline-info" disabled={isFormInvalid()}>Comment
+        <br />
+        <button className="btn btn-outline-info" disabled={isFormInvalid()}>Comment
         </button>
       </form>
     </>
