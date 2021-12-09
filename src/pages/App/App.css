@@ -2,7 +2,12 @@
   box-sizing: border-box;
 }
 
-body{
+.flex {
+  display: flex;
+  flex-direction: column;
+}
+
+body {
   margin: 0;
   /* background:linear-gradient(to right,#00AAFF,#00FF6C); */
   grid-template-columns: 20% 80%;

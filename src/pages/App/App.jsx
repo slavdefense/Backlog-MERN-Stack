@@ -107,9 +107,9 @@ const App = () => {
 	}
 
 	return (
-		<>
-			<NavBar navComponents={navComponents} user={user} handleLogout={handleLogout} />
-			<Routes>
+		<div className="flex">
+			<NavBar className="nav" navComponents={navComponents} user={user} handleLogout={handleLogout} />
+			<Routes className="main">
 				<Route path='/' element={<Landing user={user} allProfiles={allProfiles} allTickets={allTickets} />} />
 				<Route path='/signup' element={<Signup handleSignupOrLogin={handleSignupOrLogin} />} />
 				<Route path='/login' element={<Login handleSignupOrLogin={handleSignupOrLogin} />} />
@@ -122,7 +122,7 @@ const App = () => {
 				<Route path="/Search" element={<SearchTicket allTickets={allTickets}/>}/>
 				<Route path="/viewUser" element={<UserView allProfiles={allProfiles}/>}/>
 			</Routes>
-		</>
+		</div>
 	);
 }
 
