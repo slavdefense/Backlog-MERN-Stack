@@ -1,4 +1,4 @@
-# backlog app
+# Backlog App
 
 <h2>Background</h2>
 As three software engineers we wanted to design a product that would be useful to us and other developers. So we decided to build Backlog, a project management and ticket system.
