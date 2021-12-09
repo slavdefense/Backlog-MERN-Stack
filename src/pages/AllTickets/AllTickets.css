@@ -1,9 +1,14 @@
 .all-tickets{
   margin-left: 200px;
-  max-width: 1000px;
 
 }
 
-.table{
-  border: 2px solid black;
+.tickets-index {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.search-area {
+  display: flex;
+  padding: 0px 5px;
 }

@@ -27,10 +27,10 @@ const App = () => {
 	const navigate = useNavigate()
 
 	const [navComponents,setNavComponents] = useState([
-		{name:'HOME', url:'/home'},
-		{name:'SEARCH',url:'/search'},
-		{name:'TICKETS',url:'/tickets'},
-		{name:'MY WORK',url:'/myWork'},
+		{name:'Home', url:'/home'},
+		{name:'Search',url:'/search'},
+		{name:'Tickets',url:'/tickets'},
+		{name:'My work',url:'/myWork'},
 		{name:"New Ticket",url:'/addTicket'}
 	])
 	
@@ -107,9 +107,9 @@ const App = () => {
 	}
 
 	return (
-		<>
-			<NavBar navComponents={navComponents} user={user} handleLogout={handleLogout} />
-			<Routes>
+		<div className="flex">
+			<NavBar className="nav" navComponents={navComponents} user={user} handleLogout={handleLogout} />
+			<Routes className="main">
 				<Route path='/' element={<Landing user={user} allProfiles={allProfiles} allTickets={allTickets} />} />
 				<Route path='/signup' element={<Signup handleSignupOrLogin={handleSignupOrLogin} />} />
 				<Route path='/login' element={<Login handleSignupOrLogin={handleSignupOrLogin} />} />
@@ -121,9 +121,8 @@ const App = () => {
 				<Route path="/editTicket" element={<EditTicket handleUpdateTicket={handleUpdateTicket} allProfiles={allProfiles} user={user} profile={profile}/>} />
 				<Route path="/Search" element={<SearchTicket allTickets={allTickets}/>}/>
 				<Route path="/viewUser" element={<UserView allProfiles={allProfiles}/>}/>
-				{/* <Route path="/map" element = {<Map/>}/> */}
 			</Routes>
-		</>
+		</div>
 	);
 }
 
