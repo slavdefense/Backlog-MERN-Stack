@@ -3,7 +3,7 @@
 <h2>Background</h2>
 As three software engineers we wanted to design a product that would be useful to us and other developers. So we decided to build Backlog, a project management and ticket system.
 <br /><br />
-Users can submit tickets with
+Users can submit tickets with any errors that are encountered during the SDLC on major projects or even for educational purposes.
 
 
 <br /><br />
@@ -31,13 +31,13 @@ Users can submit tickets with
   <li>Javascript</li>
   <li>Git</li>
   <li>CSS</li>
-  <li><a href=""></a>Axios</li>
-  <li><a href=""></a>Cloudinary</li>
-  <li><a href=""></a>Multer</li>
-  <li><a href=""></a>Mapbox</li>
-  <li><a href=""></a>Bootstrap</li>
-  <li><a href=""></a>dotenv</li>
-  <li><a href=""></a></li>
+  <li><a href="https://www.npmjs.com/package/axios">Axios</a></li>
+  <li><a href="https://cloudinary.com/">Cloudinary</a></li>
+  <li><a href="https://www.npmjs.com/package/multer">Multer</a></li>
+  <li><a href="https://www.mapbox.com/">Mapbox</a></li>
+  <li><a href="https://getbootstrap.com/">Bootstrap</a></li>
+  <li><a href="https://www.npmjs.com/package/dotenv">dotenv</a></li>
+  <li><a href="https://jwt.io/">JWT</a></li>
 </ul>
 
 <br /><br />
@@ -51,7 +51,12 @@ Users can submit tickets with
 
 <br /><br />
 <h2>Next Steps</h2>
-...
+<ul>
+  <li> Improve styling </li>
+  <li> Add capability to communicate within the application </li>
+  <li> Add functionality that can assist with fixing the error </li>
+  <li> Make the application mobile responsive </li>
+</ul>
 
 
 <br /><br />
