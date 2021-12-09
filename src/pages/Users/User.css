@@ -1,13 +1,19 @@
-.container {
-  justify-content: left;
+.conti {
+  margin-left: 100px;
+  margin-top:50px;
+ 
 }
 
 #cont-d{
   border:2px solid black;
-  width: 900px;
-  height: 400px;
+  width: 400px;
+  height: 140px;
   overflow: hidden;
   overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  
 }
 
 #cont-d p{
