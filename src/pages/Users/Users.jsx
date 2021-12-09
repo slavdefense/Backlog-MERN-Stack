@@ -6,230 +6,160 @@ import { Link } from 'react-router-dom'
 //in the profile model there is a team which is embedded to team schema
 //the team has a 1) name: string and 2) members: Profile reference
 
-
 const Users = (props) => {
-
-  const [profiles, setProfiles] = useState(['admin'])
-  const [newProfiles,setNewProfiles] = useState()
-  const [assignTask,setAssignTask]= useState()
-  const [priorityTeam,setPriorityTeam]=useState(
+  let allProfiles = props.allProfiles
+  // on load (because of useeffect, profiles are set too all profiles)
+  const [profiles, setProfiles] = useState([''])
+  // const [newProfiles, setNewProfiles] = useState()
+  const [priorityTeam, setPriorityTeam] = useState(
     {
-      priority:''
+      priority: '',
+      profileId: ''
     }
   )
-  const [highTeam,setHightTeam]=useState(['admin'])
-  const [mediumTeam,setmediumTeam]=useState(['admin'])
-  const [lowTeam,setLowTeam]=useState(['admin'])
- 
-  useEffect(()=> {
+
+  // on submit we want to rerender the table below
+  // meaning we should change priorities then
+  // need to call use effect to get all teams again for this to work?
+
+  useEffect(() => {
     profileService.getAllProfiles()
-    .then(profiles => setProfiles(profiles))
-  }, [])
-
-  const submitHandler=(evt)=>{
-   evt.preventDefault()
-   setProfiles(newProfiles)
-  
-  }
-
-  const handlePriorityChange = (evt)=>{
-    setPriorityTeam({...priorityTeam,[evt.target.name]:evt.target.value})
-  }
-  const submitPriorityHandler=(evt)=>{
-    evt.preventDefault()
-  }
-
-  const handleChange=(evt)=>{
-   
-
-      const namesAssigned = profiles.filter((item)=>{
-          return item.name=== evt.target.value
-           })
-   //priorityTeam.priority==="medium"
-   if(priorityTeam.priority==='high'){
-     console.log(namesAssigned)
-     let high = [...highTeam,namesAssigned[0].name]
-     console.log(high)
-     
-     setHightTeam(high)
-     console.log(highTeam)
-    }
-    else if(priorityTeam.priority==='medium'){
-      let medium = [...mediumTeam,namesAssigned[0].name]
-      setmediumTeam(medium)
-    }
-    else{
-      let low = [...lowTeam,namesAssigned[0].name]
-      setLowTeam(low)
-    }
+      // all profiles won't be set until after this useEffect finishes firing
+      .then(profiles => setProfiles(profiles))
+  }, [allProfiles])
 
 
-   setAssignTask(namesAssigned)
-    const newestProfiles = profiles.filter((item)=>{ 
-      return item.name!==evt.target.value
-      
+  const handlePriorityChange = (evt) => {
+    setPriorityTeam({
+      ...priorityTeam,
+      [evt.target.name]: evt.target.value
     })
-    setNewProfiles(newestProfiles)  
   }
 
-
-  
+  const submitTeam = (evt) => {
+    evt.preventDefault()
+    // on submit -> send the team data to the profile in assignee and send the assignee data to the team 
+    props.handleAddTeam(priorityTeam)
+  }
+  // if any of profiles => profile.team.length exists, load the page
+  // if not, wait 
   return (
     <div className="user-list container">
-      <h1>Greetings {props.user.name}  {props.user.email} </h1>
-      <h4>  {!props.user.isAdmin? 'Not an admin':'Is an Admin'} </h4>
-
-  
-      {profiles.length ? 
-      <div id="cont-d">
-        
-        {profiles.map((profile)=> {
-          return(
-            <div className="assign">
-              <Link to="/viewUser" state={profile}> 
-            <li className="vertical-scroll" key={profile._id}>{profile.name}</li> 
-          </Link>   
-            </div>
-            
-          )         
-        }         
-        )}
+      <h1>Greetings {props.user.name}. ({props.user.email}) </h1>
+      <h4>{!props.user.isAdmin ? 'Not an admin' : 'Is an Admin'} </h4>
+      {profiles.length ?
+        <div id="cont-d">
+          {profiles.map((profile) => {
+            return (
+              <div className="assign">
+                <Link to="/viewUser" state={profile}>
+                  <li className="vertical-scroll" key={profile._id}>{profile.name}</li>
+                </Link>
+              </div>
+            )
+          }
+          )}
         </div>
-        
-      :
+        :
         <p>An error occured</p>
       }
-
       <div>
         <h4>Team to assign</h4>
-
-        <form action="" onSubmit={submitPriorityHandler}>
-        <select 
-          
-          onChange={handlePriorityChange}
-          name="priority"
-        >
-           <option
-            
-            value='none'
+        <form action="" onSubmit={submitTeam}>
+          <select
+            onChange={handlePriorityChange}
+            name="priority"
           >
-            Select an option
-          </option>    
-          <option
-            name="high"
-            value='high'
+            <option>
+              Select an option
+            </option>
+            <option
+              name="priority"
+              value='high'
+            >
+              High-Prority
+            </option>
+            <option
+              name="priority"
+              value='medium'
+            >
+              Medium-Priority
+            </option>
+            <option
+              name="priority"
+              value='low'
+            >
+              Low-Priority
+            </option>
+          </select>
+          <h4>Assign User</h4>
+          <select
+            name="profileId"
+            onChange={handlePriorityChange}
           >
-            High-Prority
-          </option>
-          <option 
-            name="medium"
-            value='medium'
-          >
-          Medium-Priority
-          </option>
-          <option
-            name="low" 
-            value='low'
-          >
-            Low-Priority
-          </option>
-        </select>
-
-      <button type="submit">Select</button>
-
-
+            <option
+              value=''
+            >
+              Select an option
+            </option>
+            {
+              profiles.map(item => {
+                return (
+                  <option
+                    key={item._id}
+                    name="profileId"
+                    value={item._id}
+                  >
+                    {item.name}
+                  </option>
+                )
+              })
+            }
+          </select>
+          <button>Assign</button>
         </form>
-        
-      </div>  
-      <div >
-              <h4>Assign User</h4>
-              <form action="" onSubmit={submitHandler}  >
-                <select name="" id="" onChange={handleChange}>
-                  {
-                    profiles.map((item)=>{
-                        return(
-
-                        <option 
-                        key={item._id}
-                        value={item.name}
-                        name={item.name}
-                        
-                        
-                        >
-                       {item.name}
-                        </option>
-                  )
-                  
-                    })
-                  }
-              </select>
-              <button>Assign</button>
-            </form>
       </div>
-      
       <div>
-
-<h2>Teams</h2>
-<table className="table">
-              
-
-  <tr>
-    <td>Low Priority</td>
-
-
-
-    {assignTask&&priorityTeam&&priorityTeam.priority==="low"?
-      <th>{assignTask[0].name}</th>
-:''
-
-    }  
-    {lowTeam.map((item)=>{
-      return  <th>{item}</th>
-    })
-
-    }
-    
-  </tr>
-  <tr>
-    <td>Medium priority</td>
-    
-
-    {assignTask&&priorityTeam&&priorityTeam.priority==="medium"? 
-      <th>{assignTask[0].name}</th>
-          
-:''
-
-    }
-    {mediumTeam.map((item)=>{
-      return  <th>{item}</th>
-    })
-
-    }
-  </tr>
-  <tr>
-    <th>High Priority</th>
-
-    {assignTask&&priorityTeam&&priorityTeam.priority==="high"?
-      <th>{assignTask[0].name}</th>
-          
-:''
-
-    }
-  
-    {highTeam.map((item)=>{
-      return  <th>{item}</th>
-    })
-
-    }
-   
-  </tr>
-
-            </table>
-
-
+        <h2>Teams</h2>
+        <table className="table">
+          <tr>
+            <th>High Priority</th>
+            {allProfiles.map(profile => {
+              if (profile.team.length && profile.team[0].name === 'high') {
+                return (
+                  <td>{profile.name}</td>
+                )
+              }
+            })
+            }
+          </tr>
+          <tr>
+            <th>Medium priority</th>
+            {allProfiles.map(profile => {
+              if (profile.team.length && profile.team[0].name === 'medium') {
+                return (
+                  <td>{profile.name}</td>
+                )
+              }
+            })
+            }
+          </tr>
+          <tr>
+            <th>Low Priority</th>
+            {allProfiles.map(profile => {
+              if (profile.team.length && profile.team[0].name === 'low') {
+                return (
+                  <td>{profile.name}</td>
+                )
+              }
+            })
+            }
+          </tr>
+        </table>
       </div>
     </div>
   );
 }
+
 
 export default Users;

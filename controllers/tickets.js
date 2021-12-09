@@ -78,6 +78,7 @@ function addComment(req, res) {
   req.body.author = req.user.profile
   Ticket.findById(req.params.id)
     .then(ticket => {
+      console.log(req.body)
       ticket.comments.push(req.body)
       ticket.save()
         .then(savedTicket => {

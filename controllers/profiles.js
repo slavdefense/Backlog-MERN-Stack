@@ -7,7 +7,7 @@ function show(req, res) {
       user.populate({
         path: 'profile',
         populate: [{
-          path: 'ticketsSubmitted', 
+          path: 'ticketsSubmitted',
         },
         {
           path: 'ticketsAssigned'
@@ -23,12 +23,21 @@ function index(req, res) {
   Profile.find({})
     .populate('ticketsSubmitted')
     .populate('ticketsAssigned')
-      .then(profiles => {
-        res.json(profiles)
-      })
+    .then(profiles => {
+      res.json(profiles)
+    })
+}
+
+async function updateTeam(req, res) {
+  const foundProfile = await Profile.findById(req.body.profileId)
+  foundProfile['team'][0] = ({name: req.body.priority})
+  const completedProfile = await foundProfile.save()
+  completedProfile.populate('team')
+  res.json(completedProfile)
 }
 
 export {
   show,
-  index
+  index,
+  updateTeam
 }

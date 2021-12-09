@@ -1,9 +1,10 @@
 .container{
   margin-left: auto;
+
 }
 
 .card {
   display: flex;
-  justify-content: left;
-  height:240px;
+  height:80%;
+  width:100%;
 }

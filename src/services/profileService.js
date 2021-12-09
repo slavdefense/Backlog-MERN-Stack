@@ -17,7 +17,20 @@ function getAllProfiles() {
   .then(res => res.json())
 }
 
+function addTeam(teamData) {
+  return fetch(`${BASE_URL}/${teamData.profileId}`, {
+    method: 'PATCH',
+    headers: {
+      'Authorization': `Bearer ${tokenService.getToken()}`, 'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(teamData)
+  })
+  .then(res => res.json())
+}
+
+
 export {
   getProfile,
-  getAllProfiles
+  getAllProfiles,
+  addTeam
 }

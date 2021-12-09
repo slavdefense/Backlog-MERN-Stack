@@ -4,28 +4,27 @@
 }
 #cont-d{
   border:2px solid black;
-  width: 200px;
-  height: 100px;
+  width: 900px;
+  height: 300px;
   overflow: hidden;
   overflow-y: scroll;
- text-align: center;
+  text-align: center;
 
 }
 
-#cont-d p{height:50px; 
-          width:18%;
-         
-          
+#cont-d p{
+  height:50px; 
+  width:18%;
 }
+
 #cont-d p{overflow:hidden; overflow-y:scroll;}
 
 .assign{
   display: flex;
   justify-content: space-around;
-
 }
-.assign-click{
 
+.assign-click{
   font-size: 15px;
   position: relative;
   color: green;
@@ -33,4 +32,8 @@
 
 table, th, td {
   border:1px solid black;
+}
+
+.table {
+  max-width: 1500px;
 }
