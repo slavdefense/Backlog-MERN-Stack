@@ -1,5 +1,9 @@
 .addTicket {
   color: black;
-  /* margin: 100px; */
- 
+  margin-left: 100px;
+  margin-top: 50px;
+}
+
+.btn {
+  margin-top: 10px;
 }

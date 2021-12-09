@@ -14,8 +14,11 @@ const MyWork = props => {
       <>
         <div className="myWork">
           <h1>Hey, {profile.name.toUpperCase()}</h1>
-          <h3>Your Tickets</h3>
+          <Link to='/tickets'>
+            <button className="btn btn-info">Get started by submitting a ticket</button>
+          </Link>
           {profile && profile.ticketsAssigned.map((ticket) => {
+          <h3>Your Tickets</h3>
             return (
               <>
                 <table className="table">
@@ -41,8 +44,8 @@ const MyWork = props => {
             )
           })
           }
-          <h3>Tickets you've submitted:</h3>
           {profile && profile.ticketsSubmitted.map((ticket) => {
+          <h3>Tickets you've submitted:</h3>
             return (
               <>
                 <table className="table">
