@@ -5,7 +5,7 @@ import "./SearchTicket.css"
 
 const SearchTicket = (props) => {
   return (
-    <div>
+    <div className="search-page">
       <Search allTickets={props.allTickets} />
     </div>
   );
