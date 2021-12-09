@@ -4,10 +4,7 @@ import styles from './Landing.module.css'
 import Graph from './Graph';
 
 const Landing = ({user,allTickets,allProfiles}) => {
-
-  
-
-  const [graphAllTickets,setgraphAllTickets] =useState(allTickets)
+  const [graphAllTickets,setgraphAllTickets] = useState(allTickets)
 
   useEffect(()=>{
     setgraphAllTickets(allTickets)
@@ -15,18 +12,16 @@ const Landing = ({user,allTickets,allProfiles}) => {
 
   return (
     <main className={styles.container}>
+      <br />
       <h1>
-        Backlog Welcomes {user ? user.name : "Friend"} 
+        <b>{user ? user.name : "Hello"}, welcome to Backlog </b>
       </h1>
-      <h6>Lets Track Bugs!</h6>
-      
+      <br /><br />
+      <h3>Lets Track Bugs!</h3>
+      <br /><br />
       {/* {console.log(graphAllTickets)} */}
-
-      
     {/* <Graph graphAllTickets={graphAllTickets}/> */}
     <Graph graphAllTickets={allTickets} user={user} allProfiles={allProfiles}/>
-     
-
     </main>
   )
 }

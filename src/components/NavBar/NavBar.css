@@ -1,12 +1,11 @@
-@import url('https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&family=Press+Start+2P&family=Source+Sans+3:wght@300;400;600&display=swap');
 
-*{
-  margin: 10px 0px 0px 0px;
+* {
   padding: 0;
   box-sizing: border-box;
   list-style: none;
   text-decoration: none;
-  font-family: 'Josefin Sans', sans-serif;
+  font-family: 'Inter', sans-serif;
 }
 
 body{
@@ -14,40 +13,45 @@ body{
 }
 
 .navbar{
-  background-color: darkkhaki;
   width:20vh;
   height:100vh;
+  min-height: 100vh;
   position:absolute;
   margin-right: 10px;
   background: rgb(2,0,36);
-  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(19,9,121,1) 35%, rgba(0,212,255,1) 100%);
+  background: cornflowerblue;
 }
 
 .nav-components-li{
-  margin-top: 90px;
+  /* margin-top: 90px; */
   font-size: x-large;
   font-weight: bolder; 
+  margin-bottom: 10px;
+
 }
 
 .nav-div{
   margin-top: -80px;
+  color: black;
+  margin-bottom: 20px;
 }
+
 .nav-components{
 
-  
 }
 
-li{
+li {
   color:black;
   font-size: x-large;
   font-weight: bolder;
 }
 
 span{
-  color:black;
+  color:white;
+  font-weight: 1000;
 }
 
-.auth-style{
-  margin-left: 12px;
+#auth-style{
+  color: black;
 }
 
