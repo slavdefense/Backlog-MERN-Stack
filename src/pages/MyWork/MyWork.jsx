@@ -28,8 +28,9 @@ const MyWork = props => {
                   </thead>
                   <tbody>
                     <tr>
-                      <Link to="/ticketDetails" state={ticket}>
-                        <td>{ticket.title}</td>
+                      <Link  to="/ticketDetails" state={ticket}>
+                        <td className="link-border">{ticket.title}</td>
+                        
                       </Link>
                       <td>{ticket.description}</td>
                       <td>{ticket.status}</td>
@@ -55,7 +56,7 @@ const MyWork = props => {
                   <tbody>
                     <tr>
                       <Link to="/ticketDetails" state={ticket}>
-                        <td>{ticket.title}</td>
+                        <td className="link-border">{ticket.title}</td>
                       </Link>                      <td>{ticket.description}</td>
                       <td>{ticket.status}</td>
                     </tr>
