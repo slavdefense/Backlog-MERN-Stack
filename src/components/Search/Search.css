@@ -1,6 +1,5 @@
 .search-view {
   display: flex;
-  justify-content: left;
 }
 
 
@@ -14,5 +13,5 @@
 
 
 .btn-submit:hover {
-  background-color: #4b6bfb !important ;
+  background-color: #4b6bfb !important;
 }

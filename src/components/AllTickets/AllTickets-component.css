@@ -1,11 +1,23 @@
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 10px -30px;
+  max-width: 2000px;
+}
+
+
 .card {
   display: flex;
-  margin: 10px 0px 0px -16px;
-  height:80%;
-  width:100%;
+  flex-wrap: wrap;
+  width: 500px;
+  max-height: 250px;
 }
 .card-title {
   font-size: 2rem;
+}
+
+.card-outline {
+  padding: 0px 20px;
 }
 
 .btn-primary {
@@ -14,4 +26,8 @@
 
 .btn-primary:hover {
   background-color: #4b6bfb !important;
+}
+
+.text-submittedBy {
+  padding: 20px 0px;
 }

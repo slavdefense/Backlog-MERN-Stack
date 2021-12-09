@@ -7,13 +7,14 @@ const AllTickets = (props) => {
   return (
     <div className="all-tickets">
 
+      <div className="search-area">
         <Search allTickets={props.ticket} />
-     
-      <div className="tickets-index">
-        
-        <AllTicketsComp tickets={props.ticket} />
-        
       </div>
+
+      <div className="tickets-index">
+        <AllTicketsComp tickets={props.ticket} />
+      </div>
+
     </div>
   )
 }
