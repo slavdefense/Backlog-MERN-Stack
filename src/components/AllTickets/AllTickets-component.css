@@ -9,7 +9,7 @@
   display: flex;
   flex-wrap: wrap;
   width: 500px;
-  max-height: 250px;
+  max-height: 230px;
 }
 .card-title {
   font-size: 2rem;
@@ -17,8 +17,7 @@
 
 .card-outline {
   padding: 10px 200px 10px 5px;
-  margin: 0px 0px 0px -200px;
-  max-width: max-content;
+  margin: 0px 0px 0px -100px;
   width: 800px;
 }
 
