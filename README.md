@@ -12,14 +12,16 @@ The first step in the process is to sign up through a secured system to ensure t
 
 <br /><br />
 <h2>Screenshots</h2>
-...
+<img src="https://i.imgur.com/PW8grVs.png">
+<img src="https://i.imgur.com/1pC7gzf.png">
+<img src="https://i.imgur.com/GfgtQuL.png">
 
 <br /><br />
 <h2>Tech Framework</h2>
 <h4>This app is hosted on:</h4>
 <ul>
   <li><a href="https://github.com/slavdefense/Backlog-MERN-Stack">GitHub Repo</a></li>
-  <li><a href=""></a>Link to deployment</li>
+  <li><a href="https://backlog-bugtracker-app.herokuapp.com/"></a>Link to deployment</li>
 </ul>
 
 <h4>This app uses:</h4>
@@ -61,8 +63,13 @@ The first step in the process is to sign up through a secured system to ensure t
 
 <br /><br />
 <h2>Resources</h2>
-A special thanks to the fantastic <a href="https://github.com/ManliestBen">Ben Manley</a> and Jurgen Stevens.
+A special thanks to the fantastic <a href="https://github.com/ManliestBen">Ben Manley</a>
+ and <a href="https://www.linkedin.com/in/jurgenstevens/">Jurgen Stevens</a>.
 <br /><br />
-We also 
+We are also thankful for all of the amazing resources that helped our application along the way
 <ul>
-  <li></li>
+  <li><a href="https://icons.getbootstrap.com/">Bootstrap Icons</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/">MDN Web Docs</a></li>
+  <li><a href="https://stackoverflow.com/">Stack Overflow</a></li>
+  <li><a href="https://icons.getbootstrap.com/">Bootstrap Icons</a></li>
+</ul>
