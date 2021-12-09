@@ -16,7 +16,7 @@ body{
   width:20vh;
   height:100vh;
   min-height: 100vh;
-  position:absolute;
+  /* position:absolute; */
   margin-right: 10px;
   background: rgb(2,0,36);
   background: cornflowerblue;
