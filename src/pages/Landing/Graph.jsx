@@ -1,8 +1,10 @@
 import React, {useState,useEffect} from 'react';
+import CircleChart from './Circle.jsx';
+
 import "./Graph.css"
 
 
-const Graph = ({graphAllTickets}) => {
+const Graph = ({graphAllTickets,user,allProfiles}) => {
   
 
 // const [ticketDaysValue,setTicketDaysValue] = useState()
@@ -99,42 +101,48 @@ for(let item of week){
 
   return ( 
     <section>
+      <h3>Tickets vs Priority  </h3> 
+      <h3 id="user-vs-ticket-heading">User vs Tickets</h3>
+      
       <div className="graphs">
 
 
       
 
-<div className="priority-bar">
-  <label className="sp" htmlFor="low">Low {totalLow}</label>
-  <div id="low" className="priority-bar-fill" style={{'height':`${totalLowPercentage}%`}}>
-  </div>
-  
-</div>
-<div className="priority-bar">
-  <label htmlFor="medium">Medium {totalMedium}</label>
-  <div id="medium" className="priority-bar-fill" style={{'height':`${totalMediumPercentage}%`}}>
-  </div>
+              <div className="priority-bar">
+                <label className="sp" htmlFor="low">Low {totalLow}</label>
+                <div id="low" className="priority-bar-fill" style={{'height':`${totalLowPercentage}%`}}>
+                </div>
+                
+              </div>
+              <div className="priority-bar">
+                <label htmlFor="medium">Medium {totalMedium}</label>
+                <div id="medium" className="priority-bar-fill" style={{'height':`${totalMediumPercentage}%`}}>
+                </div>
 
-</div>
-<div className="priority-bar">
-  <label className="sp" htmlFor="high">High {totalHigh}</label>
-  <div id="high" className="priority-bar-fill" style={{'height':`${totalHighPercentage}%`}}>
-  </div>
-  
+              </div>
+              <div className="priority-bar">
+                <label className="sp" htmlFor="high">High {totalHigh}</label>
+                <div id="high" className="priority-bar-fill" style={{'height':`${totalHighPercentage}%`}}>
+                </div>
+              </div>
+              
+                 
+              <CircleChart pieAllTickets={graphAllTickets} user={user} allProfiles={allProfiles}> </CircleChart>
 
-</div>
-
-<div className="circle">
-
-</div>
-
-
-
-</div>
+              
+             
 
 
 
+
+
+        </div>
+
+        <br/>
+        <h3>Days vs Tickets </h3>
   <div className="days-of-the-week">
+    
   
 
   <div className="days">
@@ -150,7 +158,7 @@ for(let item of week){
     <div className="days-inner"style={{'height':`${week[2].value}%`}}></div>
   </div>
   <div className="days">
-  <label className="sp" htmlFor="low">Wednesd:{days[3].value} </label>
+  <label className="sp" htmlFor="low">Wednes: {days[3].value} </label>
     <div className="days-inner"style={{'height':`${week[3].value}%`}}></div>
   </div>
   <div className="days">
