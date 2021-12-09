@@ -8,10 +8,10 @@
   font-size: 2rem;
 }
 
-.btn-primary {
+.btn-details {
   background-color: #3594f3 !important;
 }
 
-.btn-primary:hover {
+.btn-details:hover {
   background-color: #4b6bfb !important;
 }
