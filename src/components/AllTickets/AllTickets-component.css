@@ -27,3 +27,7 @@
 .btn-primary:hover {
   background-color: #4b6bfb !important;
 }
+
+.text-submittedBy {
+  padding: 20px 0px;
+}

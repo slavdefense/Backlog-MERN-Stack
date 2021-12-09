@@ -26,7 +26,7 @@ const AllTicketsComp = ({ tickets }) => {
                   to="/ticketdetails" className="card-link position-absolute bottom-0 start-0" state={ticket}>
                   <button className="btn btn-primary text-center "> Details </button>
                 </Link>
-                <p className="text-right"> <b>{ticket.submittedBy.name}</b></p>
+                <p className="text-right text-submittedBy"> <b>{ticket.submittedBy.name}</b></p>
               </div>
             </div>
           </div>
