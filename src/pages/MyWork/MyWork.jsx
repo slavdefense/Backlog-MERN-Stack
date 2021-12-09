@@ -14,7 +14,7 @@ const MyWork = props => {
       <>
         <div className="myWork">
           <h1>Hey, {profile.name.toUpperCase()}</h1>
-          <Link to='/tickets'>
+          <Link to='/addTicket'>
             <button className="btn btn-info">Get started by submitting a ticket</button>
           </Link>
           {profile && profile.ticketsAssigned.map((ticket) => {
