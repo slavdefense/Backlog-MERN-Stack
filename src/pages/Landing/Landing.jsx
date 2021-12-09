@@ -3,7 +3,7 @@ import React,{useState,useEffect} from 'react';
 import styles from './Landing.module.css'
 import Graph from './Graph';
 
-const Landing = ({user,allTickets}) => {
+const Landing = ({user,allTickets,allProfiles}) => {
 
   
 
@@ -13,20 +13,18 @@ const Landing = ({user,allTickets}) => {
     setgraphAllTickets(allTickets)
   },[])
 
- 
-
-  
   return (
     <main className={styles.container}>
       <h1>
-        Hi, {user ? user.name : "Friend"} Lets Track  Errors.We Love you!
+        Backlog Welcomes {user ? user.name : "Friend"} 
       </h1>
+      <h6>Lets Track Bugs!</h6>
       
       {/* {console.log(graphAllTickets)} */}
 
       
     {/* <Graph graphAllTickets={graphAllTickets}/> */}
-    <Graph graphAllTickets={allTickets}/>
+    <Graph graphAllTickets={allTickets} user={user} allProfiles={allProfiles}/>
      
 
     </main>

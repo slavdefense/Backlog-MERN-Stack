@@ -4,7 +4,7 @@ import CircleChart from './Circle.jsx';
 import "./Graph.css"
 
 
-const Graph = ({graphAllTickets}) => {
+const Graph = ({graphAllTickets,user,allProfiles}) => {
   
 
 // const [ticketDaysValue,setTicketDaysValue] = useState()
@@ -101,6 +101,9 @@ for(let item of week){
 
   return ( 
     <section>
+      <h3>Tickets vs Priority  </h3> 
+      <h3 id="user-vs-ticket-heading">User vs Tickets</h3>
+      
       <div className="graphs">
 
 
@@ -123,19 +126,23 @@ for(let item of week){
                 <div id="high" className="priority-bar-fill" style={{'height':`${totalHighPercentage}%`}}>
                 </div>
               </div>
-              <CircleChart pieAllTickets={graphAllTickets}/>
+              
+                 
+              <CircleChart pieAllTickets={graphAllTickets} user={user} allProfiles={allProfiles}> </CircleChart>
 
-{/* <div className="circle">
+              
+             
 
-</div> */}
+
 
 
 
         </div>
 
-
-
+        <br/>
+        <h3>Days vs Tickets </h3>
   <div className="days-of-the-week">
+    
   
 
   <div className="days">
@@ -151,7 +158,7 @@ for(let item of week){
     <div className="days-inner"style={{'height':`${week[2].value}%`}}></div>
   </div>
   <div className="days">
-  <label className="sp" htmlFor="low">Wednesd:{days[3].value} </label>
+  <label className="sp" htmlFor="low">Wednes: {days[3].value} </label>
     <div className="days-inner"style={{'height':`${week[3].value}%`}}></div>
   </div>
   <div className="days">

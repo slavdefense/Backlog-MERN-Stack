@@ -10,7 +10,7 @@
   .priority-bar{
     height:300px;
     width:80px;
-    background-color: darkgreen;
+    background-color:#2a9d8f;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -20,11 +20,20 @@
   }
 
   .priority-bar-fill{
-    background-color: red;
+    background-color: #ef476f;
     width:100%;
    text-align: center;
    
 
+  }
+  .piechart-circle-div{
+    display: flex;
+    
+  }
+  #user-vs-ticket-heading{
+    margin-left: 500px;
+    margin-top: -40px;
+    position: absolute;
   }
 
   .circle{
@@ -49,18 +58,19 @@
     justify-content: space-between;
   }
   .days{
-    height:300px;
+    height:250px;
     width:100px;
-    background-color: yellowgreen;
+    background-color:#2a9d8f;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     font-size: 15px;
     font-weight: 900;
+    margin-bottom: 5px;
 
   }
   .days-inner{
-    background-color:purple;
+    background-color:#dc2f02;
     width:100%;
     text-align: center;
   }
