@@ -1,3 +1,18 @@
-.search-view{
-  margin-left: 300px;
+.search-view {
+  display: flex;
+  justify-content: left;
+}
+
+
+
+.btn-submit {
+  background-color: #3594f3 !important;
+  margin: 0px 0px 0px 20px;
+  padding: 0px 5px 0px 5px;
+
+}
+
+
+.btn-submit:hover {
+  background-color: #4b6bfb !important ;
 }

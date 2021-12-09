@@ -5,15 +5,16 @@ import "./AllTickets.css"
 
 const AllTickets = (props) => {
   return (
-    <>
-      <div>
+    <div className="all-tickets">
+
         <Search allTickets={props.ticket} />
-      </div>
+     
       <div className="tickets-index">
         
         <AllTicketsComp tickets={props.ticket} />
+        
       </div>
-    </>
+    </div>
   )
 }
 
