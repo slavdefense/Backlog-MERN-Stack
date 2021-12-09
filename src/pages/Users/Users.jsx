@@ -8,19 +8,14 @@ import { Link } from 'react-router-dom'
 
 const Users = (props) => {
   let allProfiles = props.allProfiles
-  // on load (because of useeffect, profiles are set too all profiles)
+  // on load (because of useeffect, profiles are set too all profiles), this happens before the useEffect runs
   const [profiles, setProfiles] = useState([''])
-  // const [newProfiles, setNewProfiles] = useState()
   const [priorityTeam, setPriorityTeam] = useState(
     {
       priority: '',
       profileId: ''
     }
   )
-
-  // on submit we want to rerender the table below
-  // meaning we should change priorities then
-  // need to call use effect to get all teams again for this to work?
 
   useEffect(() => {
     profileService.getAllProfiles()
@@ -41,36 +36,49 @@ const Users = (props) => {
     // on submit -> send the team data to the profile in assignee and send the assignee data to the team 
     props.handleAddTeam(priorityTeam)
   }
-  // if any of profiles => profile.team.length exists, load the page
-  // if not, wait 
+
   return (
     <div className="user-list container">
-      <h1>Greetings {props.user.name}. ({props.user.email}) </h1>
-      <h4>{!props.user.isAdmin ? 'Not an admin' : 'Is an Admin'} </h4>
+      <h1>Users</h1>
+      {/* <h4>{!props.user.isAdmin ? 'Not an admin' : 'Is an Admin'} </h4> */}
       {profiles.length ?
-        <div id="cont-d">
-          {profiles.map((profile) => {
-            return (
-              <div className="assign">
-                <Link to="/viewUser" state={profile}>
-                  <li className="vertical-scroll" key={profile._id}>{profile.name}</li>
-                </Link>
-              </div>
-            )
-          }
-          )}
-        </div>
+        <>
+          <div id="cont-d">
+            {profiles.map((profile) => {
+              return (
+                <div className="assign">
+                  <Link to="/viewUser" state={profile}>
+                    <li className="vertical-scroll" key={profile._id}>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="black" class="bi bi-file-person" viewBox="0 0 16 16">
+                      <path d="M12 1a1 1 0 0 1 1 1v10.755S12 11 8 11s-5 1.755-5 1.755V2a1 1 0 0 1 1-1h8zM4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4z" />
+                      <path d="M8 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                      </svg> 
+                      {profile.name}
+                    </li>
+                  </Link>
+                </div>
+              )
+            }
+            )}
+          </div>
+        </>
         :
         <p>An error occured</p>
       }
+      <br /><br />
       <div>
+        <h3>Assign users to a team</h3>
         <h4>Team to assign</h4>
         <form action="" onSubmit={submitTeam}>
           <select
             onChange={handlePriorityChange}
             name="priority"
+            class="form-select form-select-lg mb-3"
+            aria-label=".form-select-lg example"
           >
-            <option>
+            <option
+              selected
+            >
               Select an option
             </option>
             <option
@@ -96,9 +104,12 @@ const Users = (props) => {
           <select
             name="profileId"
             onChange={handlePriorityChange}
+            className="form-select"
+            multiple aria-label="multiple select example"
+            id="form-select-multiple"
           >
             <option
-              value=''
+              selected
             >
               Select an option
             </option>
@@ -116,9 +127,11 @@ const Users = (props) => {
               })
             }
           </select>
-          <button>Assign</button>
+          <br />
+          <button className="btn btn-success">Assign</button>
         </form>
       </div>
+      <br />
       <div>
         <h2>Teams</h2>
         <table className="table">
