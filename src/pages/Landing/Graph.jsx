@@ -1,4 +1,6 @@
 import React, {useState,useEffect} from 'react';
+import CircleChart from './Circle.jsx';
+
 import "./Graph.css"
 
 
@@ -104,33 +106,32 @@ for(let item of week){
 
       
 
-<div className="priority-bar">
-  <label className="sp" htmlFor="low">Low {totalLow}</label>
-  <div id="low" className="priority-bar-fill" style={{'height':`${totalLowPercentage}%`}}>
-  </div>
-  
-</div>
-<div className="priority-bar">
-  <label htmlFor="medium">Medium {totalMedium}</label>
-  <div id="medium" className="priority-bar-fill" style={{'height':`${totalMediumPercentage}%`}}>
-  </div>
+              <div className="priority-bar">
+                <label className="sp" htmlFor="low">Low {totalLow}</label>
+                <div id="low" className="priority-bar-fill" style={{'height':`${totalLowPercentage}%`}}>
+                </div>
+                
+              </div>
+              <div className="priority-bar">
+                <label htmlFor="medium">Medium {totalMedium}</label>
+                <div id="medium" className="priority-bar-fill" style={{'height':`${totalMediumPercentage}%`}}>
+                </div>
 
-</div>
-<div className="priority-bar">
-  <label className="sp" htmlFor="high">High {totalHigh}</label>
-  <div id="high" className="priority-bar-fill" style={{'height':`${totalHighPercentage}%`}}>
-  </div>
-  
+              </div>
+              <div className="priority-bar">
+                <label className="sp" htmlFor="high">High {totalHigh}</label>
+                <div id="high" className="priority-bar-fill" style={{'height':`${totalHighPercentage}%`}}>
+                </div>
+              </div>
+              <CircleChart pieAllTickets={graphAllTickets}/>
 
-</div>
+{/* <div className="circle">
 
-<div className="circle">
-
-</div>
-
+</div> */}
 
 
-</div>
+
+        </div>
 
 
 
