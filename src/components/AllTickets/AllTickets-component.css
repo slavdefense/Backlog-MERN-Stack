@@ -1,14 +1,13 @@
 .container {
   display: flex;
   flex-wrap: wrap;
-  /* margin: 10px -30px; */
+  max-width: 1000rem;
+
 }
 
 
 .card {
-  display: flex;
-  flex-wrap: wrap;
-  width: 500px;
+  width: 600px;
   max-height: 230px;
 }
 .card-title {
@@ -16,9 +15,12 @@
 }
 
 .card-outline {
-  padding: 10px 200px 10px 5px;
-  margin: 0px 0px 0px -100px;
-  width: 800px;
+  display: flex;
+  flex-wrap: wrap;
+  width: 500px;
+  margin: 50px 100px 0px -100px;
+  padding: 5px;
+  min-width: 100px;
 }
 
 .btn-primary {
