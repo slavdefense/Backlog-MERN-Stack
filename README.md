@@ -8,7 +8,7 @@ Users can submit tickets with any errors that are encountered during the SDLC on
 
 <br /><br />
 <h2>Getting Started</h2>
-...
+The first step in the process is to sign up through a secured system to ensure the safety of your account. The next step is to create a ticket that you will be able to share with a potential team or someone who is assigned to that ticket. The ticket will allow you to post a form of information that is best suited to get the most efficient response to help solve your bugs. The user who submitted the ticket and the user assigned to the ticket, will ensure that the ticket is completed and solved in a timely manner.
 
 <br /><br />
 <h2>Screenshots</h2>
