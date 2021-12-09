@@ -67,7 +67,7 @@ const Search = ({ allTickets }) => {
             Low
           </option>
         </select>
-        <button>Submit</button>
+        <button className="btn btn-submit text-center" > Submit </button>
       </form>
       {
         filteredTicket ?

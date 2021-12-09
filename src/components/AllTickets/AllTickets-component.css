@@ -1,10 +1,8 @@
-.container{
-  margin-left: auto;
-
-}
-
 .card {
   display: flex;
   height:80%;
   width:100%;
+}
+.card-title {
+  font-size: 2rem;
 }
