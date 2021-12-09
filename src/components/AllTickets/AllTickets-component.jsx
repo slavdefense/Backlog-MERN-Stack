@@ -23,8 +23,8 @@ const AllTicketsComp = ({ tickets }) => {
                 <p className="card-text"> Description: {ticket.description}</p>
 
                 <Link
-                  to="/ticketdetails" className="card-link" state={ticket}>
-                  <button className="btn btn-primary"> Details </button>
+                  to="/ticketdetails" className="card-link position-absolute bottom-0 start-0" state={ticket}>
+                  <button className="btn btn-primary text-center "> Details </button>
                 </Link>
                 <p className="text-right">by: {ticket.submittedBy.name}</p>
               </div>

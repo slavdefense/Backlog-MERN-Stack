@@ -7,3 +7,11 @@
 .card-title {
   font-size: 2rem;
 }
+
+.btn-primary {
+  background-color: #3594f3 !important;
+}
+
+.btn-primary:hover {
+  background-color: #4b6bfb !important;
+}
