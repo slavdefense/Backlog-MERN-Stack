@@ -37,6 +37,12 @@ const Users = (props) => {
     props.handleAddTeam(priorityTeam)
   }
 
+  const isFormInvalid = () => {
+    return !(priority && profileId)
+  }
+
+  const { priority, profileId } = priorityTeam
+
   return (
     <div className="conti">
       <h1>Users</h1>
@@ -128,7 +134,7 @@ const Users = (props) => {
             }
           </select>
           <br />
-          <button className="btn btn-success">Assign</button>
+          <button disabled={isFormInvalid()} className="btn btn-success">Assign</button>
         </form>
       </div>
       <br />
