@@ -14,7 +14,7 @@ import TicketView from '../TicketView/TicketView'
 import EditTicket from '../EditTicket/EditTicket'
 import MyWork from '../MyWork/MyWork'
 import SearchTicket from '../SearchTicket/SearchTicket'
-import { getProfile, getAllProfiles } from '../../services/profileService'
+import { getProfile, getAllProfiles, addTeam } from '../../services/profileService'
 import UserView from '../UserView/UserView'
 
 const App = () => {
@@ -92,7 +92,18 @@ const App = () => {
 			setTickets(newTicketArray)
 			navigate("/ticketDetails", {state: updatedTicketInfo})
 		})
-		
+	}
+
+	const handleAddTeam = teamData => {
+		// call to backend with (teamData) being passed
+		addTeam(teamData)
+		// then take the response, which should be teams data
+		.then(updatedProfile => {
+			const newProfileArray = allProfiles.map(profile => 
+				profile._id === updatedProfile._id ? updatedProfile : profile)
+				setAllProfiles(newProfileArray)
+		})
+		// all profiles are being passed in via props, so should have teams available off of them
 	}
 
 	return (
@@ -102,7 +113,7 @@ const App = () => {
 				<Route path='/' element={<Landing user={user} allTickets={allTickets} />} />
 				<Route path='/signup' element={<Signup handleSignupOrLogin={handleSignupOrLogin} />} />
 				<Route path='/login' element={<Login handleSignupOrLogin={handleSignupOrLogin} />} />
-				<Route path='/users' element={user ? <Users user={user} /> : <Navigate to='/login' />} />
+				<Route path='/users' element={user ? <Users user={user} allProfiles={allProfiles} handleAddTeam={handleAddTeam} /> : <Navigate to='/login' />} />
 				<Route path ="/tickets" element={<AllTickets ticket={allTickets}/>}/>
 				<Route path='/myWork' element={<MyWork profile={profile} />} />
 				<Route path='/addTicket' element={<AddTicket handleSubmitTicket={handleSubmitTicket} profile={profile} allProfiles={allProfiles}/>} />
