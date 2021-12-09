@@ -33,7 +33,7 @@ const Search = ({ allTickets }) => {
 
   return (
     <div className="search-view">
-      <h1>Search using any fields</h1>
+      {/* <h1>Search using any fields</h1> */}
       <form action="" onSubmit={handleSubmit}>
         <input type="text" onChange={handleChange} name="title" placeholder="search" />
         <label htmlFor="from">From</label>

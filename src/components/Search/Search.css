@@ -1,3 +1,9 @@
+.search-view {
+  display: flex;
+  justify-content: left;
+}
+
+
 
 .btn-submit {
   background-color: #3594f3 !important;
