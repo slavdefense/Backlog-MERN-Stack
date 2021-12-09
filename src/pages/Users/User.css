@@ -1,27 +1,30 @@
-.user-list {
-  margin-left: 200px;
-  
+.container {
+  justify-content: left;
 }
+
 #cont-d{
   border:2px solid black;
   width: 900px;
-  height: 300px;
+  height: 400px;
   overflow: hidden;
   overflow-y: scroll;
-  text-align: center;
-
 }
 
 #cont-d p{
   height:50px; 
-  width:18%;
+  width: 18%;
 }
 
-#cont-d p{overflow:hidden; overflow-y:scroll;}
+#cont-d p{
+  overflow:hidden; 
+  overflow-y:scroll;
+}
 
 .assign{
+  /* changes the text within the container */
   display: flex;
-  justify-content: space-around;
+  justify-content: left;
+  margin-left: 40px;
 }
 
 .assign-click{
@@ -35,5 +38,14 @@ table, th, td {
 }
 
 .table {
-  max-width: 1500px;
+  max-width: 1200px;
+}
+
+#form-select-multiple {
+  width: 600px;
+  height: 100px;
+}
+
+.assign-btn {
+  align-content: right;
 }
