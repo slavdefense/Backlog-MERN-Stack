@@ -1,5 +1,5 @@
 import 'dotenv/config.js'
-import express, { application } from 'express'
+import express from 'express'
 import path from 'path'
 import { fileURLToPath } from 'url'
 import logger from 'morgan'

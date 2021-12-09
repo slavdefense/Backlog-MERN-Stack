@@ -13,9 +13,9 @@ const Landing = ({user,allTickets,allProfiles}) => {
   return (
     <main className={styles.container}>
       <br />
-      <h1>
+      {/* <h1>
         <b>{user ? user.name : "Hello"}, welcome to Backlog </b>
-      </h1>
+      </h1> */}
       <br /><br />
       <h3>Lets Track Bugs!</h3>
       <br /><br />

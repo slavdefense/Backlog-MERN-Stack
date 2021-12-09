@@ -31,7 +31,7 @@ const App = () => {
 		{name:'Search',url:'/search'},
 		{name:'Tickets',url:'/tickets'},
 		{name:'My work',url:'/myWork'},
-		{name:"New Ticket",url:'/addTicket'}
+		{name:"Create ",url:'/addTicket'}
 	])
 	
 	useEffect(()=>{

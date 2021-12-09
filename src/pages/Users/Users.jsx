@@ -44,7 +44,7 @@ const Users = (props) => {
   const { priority, profileId } = priorityTeam
 
   return (
-    <div className="user-list container">
+    <div className="conti">
       <h1>Users</h1>
       {/* <h4>{!props.user.isAdmin ? 'Not an admin' : 'Is an Admin'} </h4> */}
       {profiles.length ?

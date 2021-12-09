@@ -28,7 +28,7 @@ const data01 = allProfiles.map((item)=>{
 })
 
 
-
+console.log(data01)
 // useEffect(() => {
 //   return () => {
 //     setTickets(data01)
