@@ -11,7 +11,6 @@ const Users = (props) => {
   // on load (because of useeffect, profiles are set too all profiles)
   const [profiles, setProfiles] = useState([''])
   // const [newProfiles, setNewProfiles] = useState()
-  const [assignTask, setAssignTask] = useState()
   const [priorityTeam, setPriorityTeam] = useState(
     {
       priority: '',
