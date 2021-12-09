@@ -1,23 +1,26 @@
 .container {
   display: flex;
   flex-wrap: wrap;
-  /* margin: 10px -30px; */
-  max-width: 2000px;
+  max-width: 1000rem;
+
 }
 
 
 .card {
-  display: flex;
-  flex-wrap: wrap;
-  width: 500px;
-  max-height: 250px;
+  width: 600px;
+  max-height: 230px;
 }
 .card-title {
   font-size: 2rem;
 }
 
 .card-outline {
-  padding: 0px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  width: 500px;
+  margin: 50px 100px 0px -100px;
+  padding: 5px;
+  min-width: 100px;
 }
 
 .btn-primary {
