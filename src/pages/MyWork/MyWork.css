@@ -1,3 +1,13 @@
 .myWork {
-  margin-left: 400px;
+  margin-left: 180px;
+}
+
+
+.link-border{
+  outline:none;
+  border: none;
+}
+
+.title-color{
+  background-color: #caffbf;
 }

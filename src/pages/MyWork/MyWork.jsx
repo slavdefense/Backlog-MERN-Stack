@@ -13,14 +13,14 @@ const MyWork = props => {
     return (
       <>
         <div className="myWork">
-          <h1>Hello, {profile.name}</h1>
-          <h3>Your tickets</h3>
+          <h1>Hey, {profile.name.toUpperCase()}</h1>
+          <h3>Your Tickets</h3>
           {profile && profile.ticketsAssigned.map((ticket) => {
             return (
               <>
                 <table className="table">
                   <thead>
-                    <tr>
+                    <tr className="title-color">
                       <th scope="col">Title</th>
                       <th scope="col">Description</th>
                       <th scope="col">Status</th>
@@ -28,8 +28,9 @@ const MyWork = props => {
                   </thead>
                   <tbody>
                     <tr>
-                      <Link to="/ticketDetails" state={ticket}>
-                        <td>{ticket.title}</td>
+                      <Link  to="/ticketDetails" state={ticket}>
+                        <td className="link-border">{ticket.title}</td>
+                        
                       </Link>
                       <td>{ticket.description}</td>
                       <td>{ticket.status}</td>
@@ -46,16 +47,16 @@ const MyWork = props => {
               <>
                 <table className="table">
                   <thead>
-                    <tr>
+                    <tr className="title-color">
                       <th scope="col">Title</th>
                       <th scope="col">Description</th>
                       <th scope="col">Status</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
+                    <tr >
                       <Link to="/ticketDetails" state={ticket}>
-                        <td>{ticket.title}</td>
+                        <td className="link-border">{ticket.title}</td>
                       </Link>                      <td>{ticket.description}</td>
                       <td>{ticket.status}</td>
                     </tr>
