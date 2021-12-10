@@ -14,37 +14,32 @@ body{
 
 .navbars{
   width:20vh !important;
-  /* height:100%; */
   min-height: 100vh;
-  /* position:absolute; */
   margin-right: 10px;
   background: rgb(2,0,36);
-  background: cornflowerblue;
+  background:#1e6091;
   display: flex;
- 
-  
+  border:2px dotted black; 
 }
 
 .container-on-steroid{
   display:flex;
   flex-direction: column;
-  justify-content: space-around;
-  
+  justify-content: space-around 
 }
 
 .nav-components-li{
   display: flex;
   justify-content: space-around;
   font-weight: bolder;
-  color: white;
-  
+  color: white;  
 }
 
 li{
   margin-bottom: 50px;
-  font-weight: 1300px;
-  
+  font-weight: 1300px;  
 }
+
 .nav-span{
   font-weight: bolder;
   font-size: xx-large;
@@ -61,27 +56,29 @@ li{
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-top: 50px;
-  
+  margin-top: 50px; 
 }
+
 .not-logged-span{
   margin-left: 10px;
- 
   font-size: xx-large;
   text-align: center;
   font-weight: bolder;
   text-decoration: none;
 }
+
 .nav-span-cont{
   display:flex;
   flex-direction: column;
 }
+
 .nav-span-cont{
   font-weight: bolder;
   margin-left: 5px;
   margin-top:15px;
   color:#03045e;
 }
+
 .link-text{
   text-decoration: none;
 }
@@ -97,38 +94,4 @@ li{
   text-decoration: none;
 }
 
-/* ul{
-  display: inline-block;
 
-} */
-/* .nav-components-li{
-  
-  font-size: x-large;
-  font-weight: bolder; 
-  margin-bottom: 10px;
-
-}
-
-.nav-div{
-  margin-top: -80px;
-  color: black;
-  margin-bottom: 20px;
-}
-
-
-
-li {
-  color:black;
-  font-size: x-large;
-  font-weight: bolder;
-}
-
-span{
-  color:white;
-  font-weight: 1000;
-}
-
-#auth-style{
-  color: black;
-}
- */

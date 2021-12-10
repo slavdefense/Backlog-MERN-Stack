@@ -1,21 +1,15 @@
 
-
-
 .container-s {
   display: flex;
   flex-wrap: wrap;
-  max-width: 1000rem;
-  
- 
-
+  max-width: 1000rem;  
 }
-
 
 .card {
   width: 600px;
-  max-height: 230px;
-  
+  max-height: 230px; 
 }
+
 .card-title {
   font-size: 2rem;
 }

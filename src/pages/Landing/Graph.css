@@ -4,9 +4,8 @@
     display: flex;
     width:850px;
     justify-content: space-between;
-
-    
   }
+
   .priority-bar{
     height:300px;
     width:80px;
@@ -23,13 +22,12 @@
     background-color: #ef476f;
     width:100%;
    text-align: center;
-   
-
   }
+
   .piechart-circle-div{
     display: flex;
-    
   }
+
   #user-vs-ticket-heading{
     margin-left: 500px;
     margin-top: -40px;
@@ -39,24 +37,23 @@
   .circle{
     width:300px;
     height: 300px;
-   border: 1px solid black;
-   border-radius: 50%; 
-   background-color:black;
-   background-image: conic-gradient(orange 64%, blue 17%, black);
-    }
+    border: 1px solid black;
+    border-radius: 50%; 
+    background-color:black;
+    background-image: conic-gradient(orange 64%, blue 17%, black);
+  }
 
-    .sp{
-      margin-left: 16px;
-    }
-
+  .sp{
+    margin-left: 16px;
+  }
 
   .days-of-the-week{
     width:1000px;
     height:200px;
-  
     display:flex;
     justify-content: space-between;
   }
+
   .days{
     height:250px;
     width:100px;
@@ -67,8 +64,8 @@
     font-size: 15px;
     font-weight: 900;
     margin-bottom: 5px;
-
   }
+  
   .days-inner{
     background-color:#dc2f02;
     width:100%;

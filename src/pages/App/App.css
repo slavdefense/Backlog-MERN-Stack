@@ -4,24 +4,19 @@
 
 .flex {
   display: flex;
-  
-  
-  
- 
 }
 
 .nav{
   flex-grow: 0;
   max-width: 20vh;
   min-width: 20vh;
-
 }
+
 .main{
   flex-grow: 4;
-
 }
+
 body {
   margin: 0;
-  /* background:linear-gradient(to right,#00AAFF,#00FF6C); */
   grid-template-columns: 20% 80%;
 }
