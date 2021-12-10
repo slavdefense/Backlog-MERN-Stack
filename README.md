@@ -21,7 +21,7 @@ The first step in the process is to sign up through a secured system to ensure t
 <h4>This app is hosted on:</h4>
 <ul>
   <li><a href="https://github.com/slavdefense/Backlog-MERN-Stack">GitHub Repo</a></li>
-  <li><a href="https://backlog-bugtracker-app.herokuapp.com/"></a>Link to deployment</li>
+  <li><a href="https://backlog-bugtracker-app.herokuapp.com/">Link to deployment</a></li>
 </ul>
 
 <h4>This app uses:</h4>
