@@ -12,9 +12,9 @@ The first step in the process is to sign up through a secured system to ensure t
 
 <br /><br />
 <h2>Screenshots</h2>
-<img src="https://i.imgur.com/PW8grVs.png">
-<img src="https://i.imgur.com/1pC7gzf.png">
-<img src="https://i.imgur.com/GfgtQuL.png">
+<img src="https://i.imgur.com/2jwmorV.png">
+<img src="https://i.imgur.com/5pMGBVh.png">
+<img src="https://i.imgur.com/c2R9RJ3.png">
 
 <br /><br />
 <h2>Tech Framework</h2>
@@ -26,13 +26,10 @@ The first step in the process is to sign up through a secured system to ensure t
 
 <h4>This app uses:</h4>
 <ul>
-  <li>MongoDB</li>
-  <li>Node.js</li>
-  <li>Express</li>
-  <li>React</li>
-  <li>Javascript</li>
-  <li>Git</li>
-  <li>CSS</li>
+  <li><a href="https://www.mongodb.com/">MongoDB</a></li>
+  <li><a href="https://nodejs.org/en/">Node.js</a></li>
+  <li><a href="https://www.npmjs.com/package/express">Express</a></li>
+  <li><a href="https://reactjs.org/">React</a></li>
   <li><a href="https://www.npmjs.com/package/axios">Axios</a></li>
   <li><a href="https://cloudinary.com/">Cloudinary</a></li>
   <li><a href="https://www.npmjs.com/package/multer">Multer</a></li>
@@ -40,15 +37,17 @@ The first step in the process is to sign up through a secured system to ensure t
   <li><a href="https://getbootstrap.com/">Bootstrap</a></li>
   <li><a href="https://www.npmjs.com/package/dotenv">dotenv</a></li>
   <li><a href="https://jwt.io/">JWT</a></li>
+  <li>Javascript</li>
+  <li>Git</li>
+  <li>CSS</li>
 </ul>
 
 <br /><br />
 <h2>Planning Materials</h2>
 <ul>
-  <li><a href="https://docs.google.com/presentation/d/115wHaLOGxVNdRF-eLLsjHdkSe9UjpHYIlhLqnUHfOnc/edit?usp=sharing">Pitch Deck</a></li>
+  <li><a href="https://docs.google.com/presentation/d/115wHaLOGxVNdRF-eLLsjHdkSe9UjpHYIlhLqnUHfOnc/edit?usp=sharing">Pitch Deck & Wireframes</a></li>
   <li><a href="https://trello.com/b/AEN2BkPT/backlog">Trello Board</a></li>
   <li><a href="https://drive.google.com/file/d/1dXg5tcVyREsVgmg87mrd-PwkJSZe75uw/view?usp=sharing">ERD</a></li>
-  <li><a href="https://whimsical.com/backlog-vSgJLvQPLPKghuxGW2su6">Wireframes</a></li>
 </ul>
 
 <br /><br />
