@@ -1,14 +1,19 @@
-.container {
+
+
+
+.container-s {
   display: flex;
   flex-wrap: wrap;
   max-width: 1000rem;
+  
+ 
 
 }
 
-
-.card {
+.card-holder {
   width: 600px;
   max-height: 230px;
+  
 }
 .card-title {
   font-size: 20px;

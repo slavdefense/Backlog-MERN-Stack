@@ -1,9 +1,28 @@
 .ticket-view {
- 
-  max-width: 600px;
+  /* max-width: 800px; */
+  max-height: 100%;
+  margin-left: 100px;
+  margin-top: 50px;
 }
 
 .author {
-  font-weight: 600;
-  
+  font-weight: 600; 
 }
+
+.back {
+  margin-bottom: 15px;
+}
+
+.card-body {
+}
+
+.container-ticket-view {
+  background-color: white;
+}
+
+.buttons {
+}
+
+/* .card {
+  height: 10000px;
+} */

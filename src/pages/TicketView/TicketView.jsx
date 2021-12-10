@@ -1,4 +1,3 @@
-import userEvent from "@testing-library/user-event";
 import { useLocation, Link } from "react-router-dom";
 import CommentForm from "../../components/CommentForm/CommentForm";
 import ApiCall from "../ApiCall/Map-api-call";
@@ -7,10 +6,6 @@ import './TicketView.css'
 
 const TicketView = (props) => {
   const location = useLocation()
-  console.log(location.state.submittedBy._id)
-  console.log(location.state.assignedTo._id)
-  console.log(props.user.profile)
-  console.log(props.user)
 
   let formattedUrl = location.state.image.split('')
   formattedUrl.splice(48, 0, 'w_500,h_275,c_scale/')
@@ -33,65 +28,78 @@ const TicketView = (props) => {
     <>
       <div className="ticket-view">
         <h1>Ticket Details</h1>
-        <Link to="/tickets" className="btn btn-info">
-          Back
-        </Link>
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">{location.state.title}</h5>
-            <p class="card-subtitle mb-2 text-muted" >{location.state.status}</p>
-            <h5>Description</h5>
-            <h6 class="card-text">{location.state.description}</h6>
-            <br />
-            <p>Priority Level: {location.state.priority}</p>
-            <br />
-            <p>Submitted By: {location.state.submittedBy.name}</p>
-            <br />
-            <p>Assigned To: {location.state.assignedTo.name}</p>
-            <br />
-            {
-              (location.state.relatedLink) ?
-                <p>Related Link: {location.state.relatedLink}</p>
-                : <></>
-            }
-            <p>Submitted On:</p>
-            <p>{formattedDate(location.state.startDate)}</p>
-            {
-              (location.state.completedDate !== null ?
+        <div className="back">
+          <Link to="/tickets" className="btn btn-info">
+            Back to all tickets
+          </Link>
+        </div>
+        <div>
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">{location.state.title}</h5>
+              <p class="card-subtitle mb-2 text-muted" >{location.state.status}</p>
+              <h3>Description</h3>
+              <h6 class="card-text">{location.state.description}</h6>
+              <br />
+              <h5>Priority Level: {location.state.priority}</h5>
+              <br />
+              <h5>Submitted By: {location.state.submittedBy.name}</h5>
+              <br />
+              <h5>Assigned To: {location.state.assignedTo.name}</h5>
+              <br />
+              {
+                (location.state.relatedLink) ?
+                  <h5>Related Link: {location.state.relatedLink}</h5>
+                  : <></>
+              }
+              <h5>Submitted On:</h5>
+              <p>{formattedDate(location.state.startDate)}</p>
+              {
+                (location.state.completedDate !== null ?
+                  <>
+                    <h5>Completed On:</h5>
+                    <p>{formattedDate(location.state.completedDate)}</p>
+                  </>
+                  :
+                  <></>
+                )
+              }
+              {
+                (finalUrl !== 'w_500,h_275,c_scale/' ?
+                  <>
+                    <p>Images:</p>
+                    <img src={finalUrl} alt="file of issue"></img>
+                  </>
+                  :
+                  <>
+                  </>
+                )
+              }
+              <br /><br />
+              {location.state.officeLocation.length ?
                 <>
-                  <p>Completed On:</p>
-                  <p>{formattedDate(location.state.completedDate)}</p>
-                </>
-                : 
-                <></>
-              )
-            }
-            {
-              (finalUrl !== 'w_500,h_275,c_scale/' ?
-                <>
-                  <p>Images:</p>
-                  <img src={finalUrl} alt="file of issue"></img>
+                <h5>Location</h5>
+                  <ApiCall wantedData={location.state.officeLocation} />
                 </>
                 :
                 <>
+                  <div><b>No location has been submitted...</b></div>
                 </>
-              )
-            }
+              }
+            </div>
           </div>
         </div>
         {(props.user.profile === location.state.submittedBy._id ||
-        props.user.profile === location.state.assignedTo._id) ?
-        
-          <>
+          props.user.profile === location.state.assignedTo._id) ?
+          <div className="buttons">
             <Link className="btn btn-warning" state={location.state} to="/editTicket">Edit</Link>
             <div>
               <button className="btn btn-danger" onClick={handleClick}> Delete</button>
             </div>
-          </>
+          </div>
           :
           <></>
         }
-      
         <br />
         {location.state.comments.length ?
           <>
@@ -118,13 +126,6 @@ const TicketView = (props) => {
         <div className="comment-form">
           <CommentForm handleAddComment={props.handleAddComment} ticketId={location.state._id} />
         </div>
-        {location.state.officeLocation.length ?
-        <ApiCall wantedData={location.state.officeLocation} />
-        :
-        <>
-        <div>No location has been submitted...</div>
-        </>
-        }   
       </div >
     </>
   );
