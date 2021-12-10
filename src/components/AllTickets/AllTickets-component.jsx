@@ -11,7 +11,7 @@ const AllTicketsComp = ({ tickets }) => {
     )
   } else {
     return (
-      <div className="container">
+      <div className="container-s">
         {tickets.map(ticket => {
           return (
             <div className="card-outline"> 

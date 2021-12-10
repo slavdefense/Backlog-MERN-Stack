@@ -9,13 +9,13 @@ const NavBar = ({ user, handleLogout,navComponents }) => {
 				<nav>
 					<div className="container-on-steroid" >
 						<ul className="nav-div" >
-							<li>
-								<span>Welcome, {user.name}</span>
+							<li className="nav-span-cont">
+								<span  className="nav-span-welcome">Orale, {user.name}</span>
 							</li>
 						</ul>
 						<ul className="nav-components">
 							<li className="nav-components-li">
-								<Link to='/' > <span className="nav-span">{navComponents[0].name}</span></Link>
+								<Link  to='/' > <span  className="nav-span">{navComponents[0].name}</span></Link>
 							</li>
 							<li className="nav-components-li">
 								<Link to='/mywork' > <span className="nav-span">{navComponents[3].name}</span></Link>
