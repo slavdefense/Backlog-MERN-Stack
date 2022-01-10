@@ -13,24 +13,25 @@ body{
 }
 
 .navbars{
-  width:20vh !important;
+  width:30vh !important;
   min-height: 100vh;
   margin-right: 10px;
   background: rgb(2,0,36);
   background:#1e6091;
   display: flex;
-  border:2px dotted black; 
+  /* border:2px dotted black;  */
 }
 
 .container-on-steroid{
   display:flex;
   flex-direction: column;
-  justify-content: space-around 
+  justify-content: center;
+  align-items: center;
 }
-
 .nav-components-li{
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  
   font-weight: bolder;
   color: white;  
 }
@@ -41,22 +42,30 @@ li{
 }
 
 .nav-span{
-  font-weight: bolder;
-  font-size: xx-large;
+  
+  font-size: 2em;
   color: #03045e;
   text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 35px;
+  font-weight: 1200px;
+  
+  
 }
 
 .not-logged-nav{
   display:flex;
   justify-content: center;
+  height:100vh;
 }
 
 .not-logged-ul{
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-top: 50px; 
+  margin-top: 100%; 
 }
 
 .not-logged-span{
@@ -94,4 +103,16 @@ li{
   text-decoration: none;
 }
 
+.auth-style{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 20px;
+}
 
+
+.nav-span-welcome{
+  margin-left: 25px;
+  color: white;
+  font-size: 35px;
+}

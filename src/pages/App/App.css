@@ -4,6 +4,7 @@
 
 .flex {
   display: flex;
+  
 }
 
 .nav{
@@ -18,5 +19,5 @@
 
 body {
   margin: 0;
-  grid-template-columns: 20% 80%;
+  /* grid-template-columns: 20% 80%; */
 }
