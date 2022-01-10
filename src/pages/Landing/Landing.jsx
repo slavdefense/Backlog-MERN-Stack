@@ -14,8 +14,8 @@ const Landing = ({user,allTickets,allProfiles}) => {
     <main className={styles.container}>
       <br />
       <br /><br />
-      <h3>Lets Track Bugs!</h3>
-      <br /><br />
+      <h1> Lets Track Bugs!</h1>
+      {/* <br /><br /> */}
     <Graph graphAllTickets={allTickets} user={user} allProfiles={allProfiles}/>
     </main>
   )

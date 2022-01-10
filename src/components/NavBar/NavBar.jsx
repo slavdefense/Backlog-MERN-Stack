@@ -10,7 +10,8 @@ const NavBar = ({ user, handleLogout,navComponents }) => {
 					<div className="container-on-steroid" >
 						<ul className="nav-div" >
 							<li className="nav-span-cont">
-								<span  className="nav-span-welcome">Orale, {user.name}</span>
+								<span  className="nav-span-welcome">Hi, {user.name}</span>
+								
 							</li>
 						</ul>
 						<ul className="nav-components">
